@@ -21,13 +21,13 @@ def remove():
     os.remove(tile+"-admin.py")
     os.remove(tile+".py")
     f = open("events.csv","r+")
-d = f.readlines()
-f.seek(0)
-for i in d:
+    d = f.readlines()
+    f.seek(0)
+    for i in d:
     if not tile in i:
         f.write(i)
-f.truncate()
-f.close()
+    f.truncate()
+    f.close()
 
 def user():
     return """
