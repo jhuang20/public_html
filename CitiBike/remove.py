@@ -20,6 +20,14 @@ def remove():
     os.remove(tile+".csv")
     os.remove(tile+"-admin.py")
     os.remove(tile+".py")
+    f = open("events.csv","r+")
+d = f.readlines()
+f.seek(0)
+for i in d:
+    if not tile in i:
+        f.write(i)
+f.truncate()
+f.close()
 
 def user():
     return """
@@ -30,7 +38,7 @@ def user():
 </head>
 <title>Dashboard</title>
 <body>
-<h1>U submitted an event!</h1>
+<h1>You Deleted an Event!</h1>
 <p><a href="dashboard.py">back to dashboard</a></p>
 </body>
 </html>"""
