@@ -75,6 +75,7 @@ Title::<input name="title"></input>
 <br>Pick a date:<input type="date" name="date"><br>
 Pick a start time(format 00:00 (24hr clock)):<input name="time"></input><br>
 Endtime(format 00:00, hh:mm): <input name="duration"></input><br>
+Capacity: <input name="size"></input><br>
   <input type="submit">
 </form>
 <h2 id="eventmanage">Event Manager</h2>"""+getEvent()+"""
