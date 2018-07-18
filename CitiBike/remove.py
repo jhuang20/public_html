@@ -24,8 +24,8 @@ def remove():
     d = f.readlines()
     f.seek(0)
     for i in d:
-    if not tile in i:
-        f.write(i)
+        if not tile in i:
+            f.write(i)
     f.truncate()
     f.close()
 
