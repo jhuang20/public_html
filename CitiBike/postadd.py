@@ -21,7 +21,8 @@ def csvWrite():
     date=FStoD()['date']
     time=FStoD()['time']
     duration=FStoD()['duration']
-    myCsvRow=""+date+""+","+" "+title+" "+","+" "+time+","+duration+" \n"
+    size=FStoD()['size']
+    myCsvRow=""+date+""+","+" "+title+" "+","+" "+time+","+duration+","+size+" \n"
 
     fd.write(myCsvRow)
     fd.close()
@@ -44,7 +45,7 @@ form=cgi.FieldStorage()
 
 print '''Content-type: text/html'''
 print
-def makePage()
+def makePage():
 return '''<!DOCTYPE html>
     <html>
     <head>
