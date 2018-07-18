@@ -5,7 +5,7 @@ form=cgi.FieldStorage()
 
 print '''Content-type: text/html'''
 print
-def makePage()
+def makePage():
 return '''<!DOCTYPE html>
     <html>
     <head>
