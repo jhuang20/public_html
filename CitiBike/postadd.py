@@ -70,16 +70,19 @@ def getevent():
     count=0
     for j in lines:
 	count+=1
-    final+="<p><b>"+str(count)+ "</b> people are going</p>"
+    final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
+    final+="<p><b>"+str(count-"""+FStoD()['size']+""")+"</b> people are on waitlist</p>"
     count=0
     for show in lines:
-        ret=show.split(",")#gives you the DATE of the Event
-	for i in ret:
-            ping=ret[i]
-            final+=ping+" "
-	    i+=1
-        final+="<br>"
+	if count<"""+FStoD()['size']+""":
+            ret=show.split(",")#gives you the DATE of the Event
+            final+=str(show)
+	    final+="<br>"
+	else:
+	    final+="<b>WAITLIST</b>"+str(show)
+	final+="<br>"
         count+=1
+
     return final
 print makePage()
 """
@@ -100,6 +103,11 @@ def getnumber():
     for i in lines:
 	counter+=1
     return counter
+def isFull():
+    if getnumber()>"""+FStoD()['size']+""":
+	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
+    else:
+	return ""
 def header():
     return '''<html>
         <title>"""+FStoD()['title']+"""</title>
@@ -107,8 +115,7 @@ def header():
         <h1>"""+FStoD()['title']+"""</h1>
         <h3>Sign up for"""+FStoD()['date']+""" at """+FStoD()['time']+""" until """ +FStoD()['duration']+"""</h3>
 <p>There are'''+str("""+FStoD()['size']+"""-getnumber())+'''  spots available out of  """+FStoD()['size']+"""</p>
-<h3 id="event">Fill out this form!</h3>
-<form action="submit.py">
+<h3 id="event">Fill out this form!</h3><br>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName"></input>
 Last Name::<input name="lastName"></input>
