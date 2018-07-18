@@ -22,7 +22,7 @@ def csvWrite():
     time=FStoD()['time']
     duration=FStoD()['duration']
     size=FStoD()['size']
-    myCsvRow=""+date+""+","+" "+title+" "+","+" "+time+","+duration+","+size+" \n"
+    myCsvRow=date+""+","+" "+title+" "+","+" "+time+","+duration+","+size+" \n"
 
     fd.write(myCsvRow)
     fd.close()
@@ -38,6 +38,7 @@ def csvWrite():
     c.close()
     os.chmod(date+'.csv',0777)
 def makeAdmin():
+    date=FStoD()['date']
     return """#!/usr/bin/python
 import cgi,cgitb,os
 cgitb.enable()
@@ -62,8 +63,24 @@ def makePage():
     '''
 def getevent():
 
-        final=''.join(readlines("events.csv"))+'''<br><p> <b>Master Event List(temp)</b></p>'''
-        return final
+    csvfile = open('"""+date+""".csv', "r")#opens the file
+    lines= csvfile.readlines()
+    csvfile.close()
+    final=' '
+    count=0
+    for j in lines:
+	count+=1
+    final+="<p><b>"+str(count)+ "</b> people are going</p>"
+    count=0
+    for show in lines:
+        ret=show.split(",")#gives you the DATE of the Event
+	for i in ret:
+            ping=ret[i]
+            final+=ping+" "
+	    i+=1
+        final+="<br>"
+        count+=1
+    return final
 print makePage()
 """
 
@@ -75,12 +92,21 @@ form=cgi.FieldStorage()
 
 print '''Content-type: text/html'''
 print
+def getnumber():
+    csvfile=open('"""+FStoD()['date']+""".csv','r')
+    lines=csvfile.readlines()
+    csvfile.close()
+    counter=0
+    for i in lines:
+	counter+=1
+    return counter
 def header():
     return '''<html>
         <title>"""+FStoD()['title']+"""</title>
         <body>
         <h1>"""+FStoD()['title']+"""</h1>
         <h3>Sign up for"""+FStoD()['date']+""" at """+FStoD()['time']+""" until """ +FStoD()['duration']+"""</h3>
+<p>There are'''+str("""+FStoD()['size']+"""-getnumber())+'''  spots available out of  """+FStoD()['size']+"""</p>
 <h3 id="event">Fill out this form!</h3>
 <form action="submit.py">
 <br>

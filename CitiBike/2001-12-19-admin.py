@@ -6,7 +6,7 @@ form=cgi.FieldStorage()
 print '''Content-type: text/html'''
 print
 def makePage():
-return '''<!DOCTYPE html>
+    return '''<!DOCTYPE html>
     <html>
     <head>
       <link rel="shortcut icon" type="image/png" href="../logo.png" />
@@ -22,6 +22,22 @@ return '''<!DOCTYPE html>
     '''
 def getevent():
 
-        final=''.join(readlines("events.csv"))+'''<br><p> <b>Master Event List(temp)</b></p>'''
-        return final
+    csvfile = open('2001-12-19.csv', "r")#opens the file
+    lines= csvfile.readlines()
+    csvfile.close()
+    final=' '
+    count=0
+    for j in lines:
+	count+=1
+    final+="<p><b>"+str(count)+ "</b> people are going</p>"
+    count=0
+    for show in lines:
+        ret=show.split(",")#gives you the DATE of the Event
+	for i in ret:
+            ping=ret[i]
+            final+=ping+" "
+	    i+=1
+        final+="<br>"
+        count+=1
+    return final
 print makePage()
