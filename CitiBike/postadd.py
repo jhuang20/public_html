@@ -46,7 +46,7 @@ form=cgi.FieldStorage()
 print '''Content-type: text/html'''
 print
 def makePage():
-return '''<!DOCTYPE html>
+    return '''<!DOCTYPE html>
     <html>
     <head>
       <link rel="shortcut icon" type="image/png" href="../logo.png" />
