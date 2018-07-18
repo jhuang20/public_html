@@ -5,16 +5,22 @@ form=cgi.FieldStorage()
 
 print """Content-type: text/html"""
 print
-#The ADMIN user will be able to add events
-#Adds event
-#def eventAdd():
 
-#form for adding blog posts
-#def postAdd():
-def getevent():
-
-        final=''.join(readlines("events.csv"))+"""<br><p> <b>Master Event List(temp)</b></p>"""
-        return final
+def getEvent():#gets event DATE
+    csvfile = open("events.csv", "r")#opens the file
+    lines= csvfile.readlines()
+    csvfile.close()
+    final='  <div class="w3-row-padding w3-center w3-text-black">'
+    counter=0
+    for row in lines:
+        ret=row.split(",")#gives you the DATE of the Event
+        ping=ret[0]
+        final+="""
+<div class="w3-col m3 container w3-text-black">
+        <a href="""+ping+""".py><button class="w3-button w3-black  w3-section" onmouseover="expand("""+str(counter)+""")">"""+ping+"""</button></a></div>
+        """
+        counter+=1
+    return final+"</div>"
 
 #gets message, email, and ADMIN can use it to send a message back via. email
 def getmessage():
