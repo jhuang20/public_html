@@ -73,7 +73,7 @@ Pick a start time(format 00:00 (24hr clock)):<input name="time"></input><br>
 Endtime(format 00:00, hh:mm): <input name="duration"></input><br>
   <input type="submit">
 </form>
-<h2 id="eventmanage">Event Manager</h2>"""+getevent()+"""
+<h2 id="eventmanage">Event Manager</h2>"""+getEvent()+"""
 </body>
 </html>
     """
