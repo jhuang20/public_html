@@ -18,7 +18,7 @@ def FStoD():
 def remove():
     tile=FStoD()['file']
     os.remove(tile+".csv")
-    os.remove(tile+"-admin.csv")
+    os.remove(tile+"-admin.py")
     os.remove(tile+".py")
 
 def user():
