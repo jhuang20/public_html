@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>How I Uploaded This All</h1>
+<h2>First Steps</h2>
+One of the first things I did was consolidate all the hw assignments and folders into one folder. Then I made the homepage.html documents and linked it to all the other homeworks. I also added a link to the homepage from all html Homeworks! One can seamlessly navigate through all the folders and homeworks from the homepage!
+
+<h2>Uploading All of This</h2>
+I downloaded FileZilla and connected to clyde.stuy.edu under my username. Then I uploaded the public_html folder that I created, and then just tried out the website. It worked!!!
+<a href="../../homepage.html">Back to Home</a>
+</body>
+</html>

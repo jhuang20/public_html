@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<title>jhuang20's homepage</title>
+<body>
+<p>Welcome to James's website!!</p>
+<ul>
+<li><a href="hw/04/site/index.html">hw04</a></li>
+<li><a href="hw/05/james_huang_hw05_pd03.html">hw05</a></li>
+<li><a href="hw/06/james.huang_hw06_pd03.html">hw06</a></li>
+<li><a href="hw/07/index.html">hw07</a></li>
+</ul>
+<br>
+<h1> About Me</h1>
+<br>
+My name is James HUang, and I'm just your ordinary Stuyvesant student. Honestly, I live for the breaks and weekends we get. Shoutout to all my friends hello!
+<img src="IMG_1836.JPG" height="300px">
+</body>
+</html>

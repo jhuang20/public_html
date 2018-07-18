@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>
+One World Trade Center
+</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<style>
+<style>
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;
+    margin:0;
+}
+
+body {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  display: block;
+  text-align: center;
+  color: dimgray;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.info {
+    float:left;
+    }
+.info:hover {
+    background-color: #d3d3d3;
+    color: whitesmoke;
+    }
+.login {
+    float:right;  
+    }
+.register{
+    float:right;
+    }
+.login:hover {
+    background-color: #8EA2FF;
+    color: whitesmoke;
+    }
+.register:hover {
+    background-color: #FF8E8E;
+    color: whitesmoke;
+    }
+.Name {
+    margin: 12% 15% 3% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 30px;
+    color: dimgray;
+    text-align: left;
+} 
+
+.address {
+    margin: 0% 15% 15% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 20px;
+    color: dimgray;
+    text-align: center;
+    }
+
+.description {
+    margin: 35% 15% 15% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 25px;
+    color: dimgray;
+    text-align: left;
+    }
+
+.Type {
+    color: darkgray;
+    float: right;
+    }
+
+.Reviews {
+    margin: 10% 15% 15% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 25px;
+    color: black;
+    text-align: left;
+    }
+
+.reviewHeader {
+    color: black;
+    }
+
+body {
+    background-image: url(
+http://timedotcom.files.wordpress.com/2014/03/world-trade-center.jpg);
+    min-height: 100%;
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a class="info" href="../../index.html">Home</a>
+  <a class="info" href="../page1.py">Places</a>
+  <a class="info" href="#review">Reviews</a>
+  <a class="info" href="#write_review">Write A Review</a>
+  <a class="register" href="../Login/create.html">Register</a>
+  <a class="login" href="../Login/login.html">Login</a>
+</div>
+
+<div class="Name">
+One World Trade Center<span class="Type">skyscraper</span></div>
+<div class="address">
+285 Fulton St, New York, NY 10007</div>
+<div class="description">
+One World Trade Center (also known as 1 World Trade Center, 1 WTC or Freedom Tower[15]) is the main building of the rebuilt World Trade Center complex in Lower Manhattan, New York City. It is the tallest building in the Western Hemisphere, and the sixth-tallest in the world. The supertall structure has the same name as the North Tower of the original World Trade Center, which was completely destroyed in the terrorist attacks of September 11, 2001. The new skyscraper stands on the northwest corner of the 16-acre (6.5 ha) World Trade Center site, on the site of the original 6 World Trade Center. The building is bounded by West Street to the west, Vesey Street to the north, Fulton Street to the south, and Washington Street to the east.</div>
+
+<div class="Reviews" id="review">
+    <u>Reviews:</u><br>
+Reviews are Below
+ <br><h2><b>Amazing Views</b></h2><h3><em>79/100</em></h3><br><p>A visit to the One World observatory, is a great experience, from the elevator trip up, and all the time until you're down on the ground again. We booked tickets to the first viewing at 9, and didn't have to wait at all. The weather was a little bit foggy in the beginning, but cleared only minutes after we arrived. The view is fantastic! We didn't know that it was indoors, and missed the feel of air that you get at Top of the Rocks or Empire State Building. The windows runs from floor to ceiling, so you get into the view in a nice way.<p><b>Type of Visit</b><br>tourism<br><p>This review was submitted by at Tue Jun 13 15:40:33 2017DST</p><br>
+
+ <br><h2><b>Amazing Views</b></h2><h3><em>100/100</em></h3><br><p>simply incredible<p><b>Type of Visit</b><br>family<br><p>This review was submitted by at Mon Jun 12 22:55:02 2017DST</p><br>
+ </div>
+<div id="review_write">
+
+    </div>
+<div class="Reviews w3-center" id="review_write">
+<h3>Add a Review</h3>
+<p class=""><em>What do you think of
+One World Trade Center</em></p>
+<p>Just input the values in the form</p>
+<br>
+<form name="input" method="GET" action="reView.py">
+<b>Rating:(out of 100) </b><br>
+<input type="number" name="rating_value"><br>
+<b>Title of your Review</b><br>
+<input type="text" name="title" value="title"><br>
+<b>Please Click if this Applies to you</b><br>
+<input type="hidden" name="name" value="One World Trade Center">
+<input type="radio" name="type_visit" value="family">Family Visit<br>
+<input type="radio" name="type_visit" value="business">Business Visit<br>
+<input type="radio" name="type_visit"
+value="tourism">tourism visit<br>
+<input type="radio" name="type_visit" 
+value="exploration">exploration<br>
+<br><b>Your Review</b><br>
+<textarea rows="6" cols="50" name="input">Enter Review Here...</textarea><br>
+
+<input type="submit" name="Submit Review">
+</form>
+</div>
+
+
+</body>
+</html>

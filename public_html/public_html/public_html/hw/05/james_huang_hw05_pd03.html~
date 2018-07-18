@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<title> The Rubber Duck </title>
+<br>
+<body>
+<em>when problems arise
+<br>
+the rubber duck is your best
+<br>
+friend to confide in
+</em>
+<br>
+<heading>
+Favorite Things to Do
+</heading>
+<br>
+<ol>
+<li> Swimming </li>
+<li> Talking About Bae </li>
+<li> Running </li>
+<li> Reading </li>
+</ol>
+<heading>
+Favorite Moments
+</heading>
+<li>Going on vacation</li>
+<li> Sleeping </li>
+<heading><em>fav html tags</em><heading>
+<li>"img"</li>
+<li>"s"</li>
+<li>"map"</li>
+<li>"area"</li>
+<li>"audio"</li>
+
+<a href="../../homepage.html">Back to Home</a>
+</body>
+</html>
+
+
+
+
+

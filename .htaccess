@@ -1,0 +1,2 @@
+ErrorDocument 404 http://homer.stuy.edu/~jhuang20/notfound.html
+ErrorDocument 500 http://homer.stuy.edu/~jhuang20/error.html

@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>
+BMCC
+</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<style>
+<style>
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;
+    margin:0;
+}
+
+body {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  display: block;
+  text-align: center;
+  color: dimgray;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.info {
+    float:left;
+    }
+.info:hover {
+    background-color: #d3d3d3;
+    color: whitesmoke;
+    }
+.login {
+    float:right;  
+    }
+.register{
+    float:right;
+    }
+.login:hover {
+    background-color: #8EA2FF;
+    color: whitesmoke;
+    }
+.register:hover {
+    background-color: #FF8E8E;
+    color: whitesmoke;
+    }
+.Name {
+    margin: 12% 15% 3% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 30px;
+    color: dimgray;
+    text-align: left;
+} 
+
+.address {
+    margin: 0% 15% 15% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 20px;
+    color: dimgray;
+    text-align: center;
+    }
+
+.description {
+    margin: 35% 15% 15% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 25px;
+    color: dimgray;
+    text-align: left;
+    }
+
+.Type {
+    color: darkgray;
+    float: right;
+    }
+
+.Reviews {
+    margin: 10% 15% 15% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 25px;
+    color: black;
+    text-align: left;
+    }
+
+.reviewHeader {
+    color: black;
+    }
+
+body {
+    background-image: url(
+http://www.bmcc.cuny.edu/j2ee/upload/bmcc_campus.jpg);
+    min-height: 100%;
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a class="info" href="../../index.html">Home</a>
+<a class="info" href="../page1.py">Places</a>
+<a class="info" href="#search">Search</a><a class="info" href="#list">Landmarks</a><a class="info" href="#landmarkadd">Add Landmark</a><a href="../Login/create.html" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-green">REGISTER</a>
+    <a href="../Login/login.html" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-blue">LOG IN</a>  </div>
+
+<div class="Name">
+BMCC<span class="Type">activity</span></div>
+<div class="address">
+325 Chambers Street</div>
+<div class="description">
+Its cool people do drugs there</div>
+
+<div class="Reviews" id="review">
+    <u>Reviews:</u><br>
+Reviews are Below
+ <br><h2><b>title</b></h2><h3><em>99/100</em></h3><br><p>Enter Review Here...<p><b>Type of Visit</b><br>exploration<br><p>This review was submitted by at Sun Sep 17 16:41:04 2017DST</p><br>
+ </div>
+<div id="review_write">
+
+    </div>
+<div class="Reviews w3-center" id="review_write">
+<h3>Add a Review</h3>
+<p class=""><em>What do you think of
+BMCC</em></p>
+<p>Just input the values in the form</p>
+<br>
+<form name="input" method="GET" action="reView.py">
+<b>Rating:(out of 100) </b><br>
+<input type="number" name="rating_value"><br>
+<b>Title of your Review</b><br>
+<input type="text" name="title" value="title"><br>
+<b>Please Click if this Applies to you</b><br>
+<input type="hidden" name="name" value="BMCC">
+<input type="radio" name="type_visit" value="family">Family Visit<br>
+<input type="radio" name="type_visit" value="business">Business Visit<br>
+<input type="radio" name="type_visit"
+value="tourism">tourism visit<br>
+<input type="radio" name="type_visit" 
+value="exploration">exploration<br>
+<br><b>Your Review</b><br>
+<textarea rows="6" cols="50" name="input">Enter Review Here...</textarea><br>
+
+<input type="submit" name="Submit Review">
+</form>
+</div>
+
+
+</body>
+</html>

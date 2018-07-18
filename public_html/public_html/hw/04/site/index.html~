@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html>
+<a href="subdir/page02.html">page02.html</a>
+<a href="page01.html">page01.html</a>
+<a href="../../../homepage.html">Back to Home</a>
+</html>
+

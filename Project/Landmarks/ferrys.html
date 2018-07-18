@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>
+Ferry's
+</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<style>
+<style>
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;
+    margin:0;
+}
+
+body {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  display: block;
+  text-align: center;
+  color: dimgray;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.info {
+    float:left;
+    }
+.info:hover {
+    background-color: #d3d3d3;
+    color: whitesmoke;
+    }
+.login {
+    float:right;  
+    }
+.register{
+    float:right;
+    }
+.login:hover {
+    background-color: #8EA2FF;
+    color: whitesmoke;
+    }
+.register:hover {
+    background-color: #FF8E8E;
+    color: whitesmoke;
+    }
+.Name {
+    margin: 12% 15% 3% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 30px;
+    color: dimgray;
+    text-align: left;
+} 
+
+.address {
+    margin: 0% 15% 15% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 20px;
+    color: dimgray;
+    text-align: center;
+    }
+
+.description {
+    margin: 35% 15% 15% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 25px;
+    color: dimgray;
+    text-align: left;
+    }
+
+.Type {
+    color: darkgray;
+    float: right;
+    }
+
+.Reviews {
+    margin: 10% 15% 15% 15%;
+    background-color: white;
+    padding: 10px;
+    font-size: 25px;
+    color: black;
+    text-align: left;
+    }
+
+.reviewHeader {
+    color: black;
+    }
+
+body {
+    background-image: url(
+https://s3-media2.fl.yelpcdn.com/bphoto/SL77aWgjyCLOQm2cx1H_sg/ls.jpg);
+    min-height: 100%;
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a class="info" href="../../index.html">Home</a>
+  <a class="info" href="../page1.py">Places</a>
+  <a class="info" href="#review">Reviews</a>
+  <a class="info" href="#write_review">Write A Review</a>
+  <a class="register" href="../Login/create.html">Register</a>
+  <a class="login" href="../Login/login.html">Login</a>
+</div>
+
+<div class="Name">
+Ferry's<span class="Type">food</span></div>
+<div class="address">
+450 N End Ave New York, NY 10282</div>
+<div class="description">
+Your usual deli, closest Deli to stuy-- has nice sandwiches but a little overpriced</div>
+
+<div class="Reviews" id="review">
+    <u>Reviews:</u><br>
+Reviews are Below
+ <br><h2><b>Terry's Is Amazing!</b></h2><h3><em>100/100</em></h3><br><p>It's amazing!<p><b>Type of Visit</b><br>business<br><p>This review was submitted by at Tue Jun 13 01:53:46 2017DST</p><br>
+ </div>
+<div id="review_write">
+
+    </div>
+<div class="Reviews w3-center" id="review_write">
+<h3>Add a Review</h3>
+<p class=""><em>What do you think of
+Ferry's</em></p>
+<p>Just input the values in the form</p>
+<br>
+<form name="input" method="GET" action="reView.py">
+<b>Rating:(out of 100) </b><br>
+<input type="number" name="rating_value"><br>
+<b>Title of your Review</b><br>
+<input type="text" name="title" value="title"><br>
+<b>Please Click if this Applies to you</b><br>
+<input type="hidden" name="name" value="Ferry's">
+<input type="radio" name="type_visit" value="family">Family Visit<br>
+<input type="radio" name="type_visit" value="business">Business Visit<br>
+<input type="radio" name="type_visit"
+value="tourism">tourism visit<br>
+<input type="radio" name="type_visit" 
+value="exploration">exploration<br>
+<br><b>Your Review</b><br>
+<textarea rows="6" cols="50" name="input">Enter Review Here...</textarea><br>
+
+<input type="submit" name="Submit Review">
+</form>
+</div>
+
+
+</body>
+</html>
