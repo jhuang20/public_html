@@ -17,7 +17,7 @@ def getEvent():#gets event DATE
         ping=ret[0]
         final+="""
 <div class="w3-col m3 container w3-text-black">
-        <a href="""+ping+""".py>"""+ret+"""</a>
+        <a href="""+ping+""".py>"""+str(ret)+"""</a>
         <form action="remove.py">
 <input type="hidden" id="file" name="file" value='"""+str(ping)+"""'>
   <input type="submit" value="Delete Event">
