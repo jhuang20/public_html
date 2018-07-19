@@ -38,8 +38,12 @@ def getEventCSV():#gets event DATE
     counter=0
     for row in lines:
         ret=row.split(",")#gives you the DATE of the Event
-        ping=ret[0]
-        final+="""
+        num=ret[6]
+        num=num.strip('\n')
+        check=int(num)
+        if check==2:
+            ping=ret[0]
+            final+="""
 <div class="w3-col m3 container w3-text-black">
         <a href="""+ping+""".py><button class="w3-button w3-black  w3-section" onmouseover="expand("""+str(counter)+""")">"""+ping+"""</button></a></div>
         """
