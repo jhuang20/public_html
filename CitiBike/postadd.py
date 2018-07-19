@@ -183,17 +183,17 @@ body, html {
     </a>
     <a href="#home" class="w3-black  w3-button">HOME</a>
 <a href="#about" class="w3-black w3-button "><i class="fa fa-building"></i> OUR MISSION</a>
-    <a href="CitiBike/signup.html" class="w3-black w3-button "><i class="fa fa-bicycle"></i> SIGN UP</a>
-    <a href="CitiBike/blog.html" class=" w3-black w3-button "><i class="fa fa-user"></i> BLOG</a>
-    <a href="#FAQ" class="w3-black w3-button "><i class="fa fa-question"></i> Information </a>
-    <a href="#contact" class="w3-black w3-button "><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="signup.html" class="w3-black w3-button "><i class="fa fa-bicycle"></i> SIGN UP</a>
+    <a href="blog.html" class=" w3-black w3-button "><i class="fa fa-user"></i> BLOG</a>
+    <a href="../#FAQ" class="w3-black w3-button "><i class="fa fa-question"></i> Information </a>
+    <a href="../#contact" class="w3-black w3-button "><i class="fa fa-envelope"></i> CONTACT</a>
   </div>
 </div>
         
  <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">"""+FStoD()['title']+"""</h1>
         <h3 class="w3-center">Sign up for this date:"""+FStoD()['date']+""" at """+FStoD()['time']+""" until """ +FStoD()['duration']+"""</h3>
-<p>There are'''+str("""+FStoD()['size']+"""-getnumber())+'''  spots available out of  """+FStoD()['size']+"""</p>
+<p>There are '''+str("""+FStoD()['size']+"""-getnumber())+'''  spots available out of  """+FStoD()['size']+"""</p>
 <h3 id="event">Fill out this form!</h3><br>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName"></input>
@@ -202,9 +202,11 @@ Last Name::<input name="lastName"></input>
 <br>Birthday:<input type="date" name="date"><br>
 OSIS:<input name="osis"></input><br>
 Email: <input name="contact"></input><br>
-Other Comments:<input name="q">test</input><br>
+Other Comments:<input name="q"></input><br>
 <input type="hidden" id="file" name="file" value='"""+FStoD()['date']+"""'>
-  <input type="submit">
+   <button class="w3-button w3-black w3-right w3-section" type="submit">
+          <i class="fa fa-bicycle"></i>Register!
+        </button>
 </form>
 </div>
 <script>
