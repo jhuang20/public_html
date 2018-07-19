@@ -38,11 +38,11 @@ def isFull():
     date=''
     time=''
     for j in find:
-        find=find.strip('\n')
-        ret=find.split(",")#gives you the DATE of the Event
+        ret=j.split(",")#gives you the DATE of the Event
         id=ret[0]
-        if id=getFile():
+        if id==getFile():
             ping=ret[4]
+	    ping=ping.strip('\n')
             ting=int(ping)
             date=ret[0]
             time=ret[2]
