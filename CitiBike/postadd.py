@@ -190,9 +190,9 @@ body, html {
   </div>
 </div>
         
- <div id="body" class="w3-content w3-container">
+ <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">"""+FStoD()['title']+"""</h1>
-        <h3 class="w3-center">Sign up for"""+FStoD()['date']+""" at """+FStoD()['time']+""" until """ +FStoD()['duration']+"""</h3>
+        <h3 class="w3-center">Sign up for this date:"""+FStoD()['date']+""" at """+FStoD()['time']+""" until """ +FStoD()['duration']+"""</h3>
 <p>There are'''+str("""+FStoD()['size']+"""-getnumber())+'''  spots available out of  """+FStoD()['size']+"""</p>
 <h3 id="event">Fill out this form!</h3><br>'''+isFull()+'''<form action="submit.py">
 <br>
@@ -206,7 +206,6 @@ Other Comments:<input name="q">test</input><br>
 <input type="hidden" id="file" name="file" value='"""+FStoD()['date']+"""'>
   <input type="submit">
 </form>
-<h2 id="eventmanage">Event Manager</h2>
 </div>
 <script>
 function toggleFunction() {
