@@ -109,11 +109,90 @@ def isFull():
     else:
 	return ""
 def header():
-    return '''<html>
-        <title>"""+FStoD()['title']+"""</title>
-        <body>
-        <h1>"""+FStoD()['title']+"""</h1>
-        <h3>Sign up for"""+FStoD()['date']+""" at """+FStoD()['time']+""" until """ +FStoD()['duration']+"""</h3>
+    return '''<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" type="image/png" href="../logo.png" />
+</head>
+<title>"""+FStoD()['title']+"""</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: black;
+    line-height: 1.8;
+}
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url("../Citi-Bike.jpg");
+    min-height: 100%;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
+</style>
+<body>
+  <!-- keep track of appearing and disappearing text in main page! -->
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="../index.html" class="w3-bar-item w3-button w3-hide-small">
+        <img src="../logo.png" height=40 width=100>
+    </a>
+    <a href="../index.html" class="w3-black  w3-button">HOME</a>
+    <a href="../CitiBike/signup.html" class="w3-black w3-button w3-hide-small"><i class="fa fa-bicycle"></i> SIGN UP</a>
+    <a href="../CitiBike/blog.html" class=" w3-black w3-button w3-hide-small"><i class="fa fa-user"></i> BLOG</a>
+    <a href="http://homer.stuy.edu/~jhuang20/index.html#FAQ" class="w3-black w3-button w3-hide-small"><i class="fa fa-question"></i> INFORMATION </a>
+    <a href="#contact" class="w3-black w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+  </div>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small">
+        <img src="logo.png" height=40 width=100>
+    </a>
+    <a href="#home" class="w3-black  w3-button">HOME</a>
+<a href="#about" class="w3-black w3-button "><i class="fa fa-building"></i> OUR MISSION</a>
+    <a href="CitiBike/signup.html" class="w3-black w3-button "><i class="fa fa-bicycle"></i> SIGN UP</a>
+    <a href="CitiBike/blog.html" class=" w3-black w3-button "><i class="fa fa-user"></i> BLOG</a>
+    <a href="#FAQ" class="w3-black w3-button "><i class="fa fa-question"></i> Information </a>
+    <a href="#contact" class="w3-black w3-button "><i class="fa fa-envelope"></i> CONTACT</a>
+  </div>
+</div>
+        
+ <div id="body" class="w3-content">
+        <h1 class="w3-center">"""+FStoD()['title']+"""</h1>
+        <h3 class="w3-center">Sign up for"""+FStoD()['date']+""" at """+FStoD()['time']+""" until """ +FStoD()['duration']+"""</h3>
 <p>There are'''+str("""+FStoD()['size']+"""-getnumber())+'''  spots available out of  """+FStoD()['size']+"""</p>
 <h3 id="event">Fill out this form!</h3><br>'''+isFull()+'''<form action="submit.py">
 <br>
@@ -128,7 +207,19 @@ Other Comments:<input name="q">test</input><br>
   <input type="submit">
 </form>
 <h2 id="eventmanage">Event Manager</h2>
+</div>
+<script>
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
         </body>
+	
         </html>'''
 print header()"""
 
