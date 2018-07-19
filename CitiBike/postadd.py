@@ -26,7 +26,7 @@ def csvWrite():
     type=FStoD()['type']
     if type=="volunteering":
 	typeCode=3
-    elif type="safetyclass":
+    elif type=="safetyclass":
 	typeCode=1
     else:
 	typeCode=2
