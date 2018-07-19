@@ -51,9 +51,9 @@ def isFull():
     for i in lines:#count people
         counter+=1
     if counter>ting:
-        return "you have been placed on the waitlist, stay in touch!"
+        return "You have been placed on the waitlist, stay in touch!"
     else:
-        return "thanks for registering for the event! Keep the DATE:"+date+" and time:"+time+" in mind!"
+        return "Thanks for registering for the event! Keep the DATE:"+date+" and time:"+time+" in mind! Check FB for updates!"
         
         
 def user():
@@ -73,7 +73,7 @@ def user():
 body,h1 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
 .bgimg {
-    background-image: url('Citi-Bike.jpg');
+    background-image: url('../Citi-Bike.jpg');
     min-height: 100%;
     background-position: center;
     background-size: cover;
@@ -82,7 +82,7 @@ body, html {height: 100%}
 <body>
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
   <div class="w3-display-topleft w3-padding-large w3-xlarge">
-    <img src="logo.png" height=50 width=100>
+    <img src="../logo.png" height=50 width=100>
   </div>
   <div class="w3-display-middle">
     <h4 class="w3-xxlarge w3-animate-top">"""+isFull()+"""</h4>
