@@ -71,6 +71,7 @@ Title::<input name="title"></input>
 <select name="type" size="2" multiple>
   <option value="volunteering">Volunteering</option>
   <option value="safetyclass">Safety Class</option>
+  <option value="groupride">Group Ride</option>
   </select>
 <br>Pick a date:<input type="date" name="date"><br>
 Pick a start time(format 00:00 (24hr clock)):<input name="time"></input><br>
