@@ -196,13 +196,13 @@ body, html {
 <p>There are '''+str("""+FStoD()['size']+"""-getnumber())+'''  spots available out of  """+FStoD()['size']+"""</p>
 <h3 id="event">Fill out this form!</h3><br>'''+isFull()+'''<form action="submit.py">
 <br>
-First Name::<input name="firstName"></input>
-Last Name::<input name="lastName"></input>
+First Name::<input name="firstName" required="required"></input>
+Last Name::<input name="lastName" required="required"></input>
 <br>
-<br>Birthday:<input type="date" name="date"><br>
-OSIS:<input name="osis"></input><br>
-Email: <input name="contact"></input><br>
-Other Comments:<input name="q"></input><br>
+<br>Birthday:<input type="date" name="date" required="required"><br>
+OSIS:<input name="osis" required="required"></input><br>
+Email: <input name="contact" required="required"></input><br>
+<input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program.<br>
 <input type="hidden" id="file" name="file" value='"""+FStoD()['date']+"""'>
    <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
           <i class="fa fa-bicycle"></i>Register!
