@@ -190,7 +190,7 @@ body, html {
   </div>
 </div>
         
- <div id="body" class="w3-content">
+ <div id="body" class="w3-content w3-container">
         <h1 class="w3-center">"""+FStoD()['title']+"""</h1>
         <h3 class="w3-center">Sign up for"""+FStoD()['date']+""" at """+FStoD()['time']+""" until """ +FStoD()['duration']+"""</h3>
 <p>There are'''+str("""+FStoD()['size']+"""-getnumber())+'''  spots available out of  """+FStoD()['size']+"""</p>
