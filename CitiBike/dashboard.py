@@ -66,17 +66,18 @@ def main():
 <h3 id="event">Make an Event</h3>
 <form action="postadd.py">
 <br>
-Title::<input name="title"></input>
+Title::<input name="title" required="required"></input>
 <br>
-<select name="type" size="2" multiple>
+<select name="type" size="3" required="required">
   <option value="volunteering">Volunteering</option>
   <option value="safetyclass">Safety Class</option>
   <option value="groupride">Group Ride</option>
   </select>
-<br>Pick a date:<input type="date" name="date"><br>
-Pick a start time(format 00:00 (24hr clock)):<input name="time"></input><br>
-Endtime(format 00:00, hh:mm): <input name="duration"></input><br>
+<br>Pick a date:<input type="date" name="date" required="required"><br>
+Pick a start time(format 00:00 (24hr clock)):<input name="time" required="required"></input><br>
+Endtime(format 00:00, hh:mm): <input name="duration" required="required"></input><br>
 Capacity: <input name="size"></input><br>
+Description:<textarea name="description" rows="10" cols="30">This is an Event Description...</textarea><br>
   <input type="submit">
 </form>
 <h2 id="eventmanage">Event Manager</h2>"""+getEvent()+"""
