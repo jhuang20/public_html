@@ -204,7 +204,7 @@ OSIS:<input name="osis"></input><br>
 Email: <input name="contact"></input><br>
 Other Comments:<input name="q"></input><br>
 <input type="hidden" id="file" name="file" value='"""+FStoD()['date']+"""'>
-   <button class="w3-button w3-black w3-right w3-section" type="submit">
+   <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
           <i class="fa fa-bicycle"></i>Register!
         </button>
 </form>
