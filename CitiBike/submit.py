@@ -28,7 +28,34 @@ def csvWrite():
 
     fd.write(myCsvRow)
     fd.close()
-
+def isFull():
+    fd=open(getFile()+'.csv','r')
+    lines= fd.readlines()
+    fd.close()
+    cv=open('events.csv','r')
+    find=cv.readlines()
+    ting=0#finds the CAP of the event
+    date=''
+    time=''
+    for j in find:
+        find=find.strip('\n')
+        ret=find.split(",")#gives you the DATE of the Event
+        id=ret[0]
+        if id=getFile():
+            ping=ret[4]
+            ting=int(ping)
+            date=ret[0]
+            time=ret[2]
+            break
+    counter=0
+    for i in lines:#count people
+        counter+=1
+    if counter>ting:
+        return "you have been placed on the waitlist, stay in touch!"
+    else:
+        return "thanks for registering for the event! Keep the DATE:"+date+" and time:"+time+" in mind!"
+        
+        
 def user():
     return """
     <!DOCTYPE html>
@@ -36,11 +63,11 @@ def user():
 <head>
   <link rel="shortcut icon" type="image/png" href="logo.png" />
 </head>
-<title>Dashboard</title>
+<title>Signup</title>
 
 <body>
 
-<h1>Thanks for registering!</h1>
+<h1>"""+isFull()+"""</h1>
 <p><a href="../index.html">back home</a></p>
 
 </body>
