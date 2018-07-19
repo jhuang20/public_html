@@ -61,7 +61,7 @@ def user():
       <!DOCTYPE html>
 <html>
 <head>
-  <link rel="shortcut icon" type="image/png" href="logo.png" />
+  <link rel="shortcut icon" type="image/png" href="../logo.png" />
 </head>
 <title>Signup</title>
 <meta charset="UTF-8">
@@ -73,7 +73,7 @@ def user():
 body,h1 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
 .bgimg {
-    background-image: url('../Citi-Bike.jpg');
+    background-image: url('../night.jpg');
     min-height: 100%;
     background-position: center;
     background-size: cover;
