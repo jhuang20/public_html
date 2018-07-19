@@ -22,7 +22,15 @@ def csvWrite():
     time=FStoD()['time']
     duration=FStoD()['duration']
     size=FStoD()['size']
-    myCsvRow=date+""+","+" "+title+" "+","+" "+time+","+duration+","+size+" \n"
+    description=FStoD()['description']
+    type=FStoD()['type']
+    if type=="volunteering":
+	typeCode=3
+    elif type="safetyclass":
+	typeCode=1
+    else:
+	typeCode=2
+    myCsvRow=date+","+title+","+time+","+duration+","+size+","+description+","+typeCode+" \n"
 
     fd.write(myCsvRow)
     fd.close()
