@@ -30,7 +30,7 @@ def csvWrite():
 	typeCode=1
     else:
 	typeCode=2
-    myCsvRow=date+","+title+","+time+","+duration+","+size+","+description+","+typeCode+" \n"
+    myCsvRow=date+","+title+","+time+","+duration+","+size+","+description+","+str(typeCode)+" \n"
 
     fd.write(myCsvRow)
     fd.close()
