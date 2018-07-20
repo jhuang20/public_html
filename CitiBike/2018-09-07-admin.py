@@ -22,7 +22,7 @@ def makePage():
     '''
 def getevent():
 
-    csvfile = open('2018-09-08.csv', "r")#opens the file
+    csvfile = open('2018-09-07.csv', "r")#opens the file
     lines= csvfile.readlines()
     csvfile.close()
     final=' '
@@ -30,10 +30,10 @@ def getevent():
     for j in lines:
 	count+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
-    final+="<p><b>"+str(count-150)+"</b> people are on waitlist</p>"
+    final+="<p><b>"+str(count-75)+"</b> people are on waitlist</p>"
     count=0
     for show in lines:
-	if count<150:
+	if count<75:
             ret=show.split(",")#gives you the DATE of the Event
             final+=str(show)
 	    final+="<br>"

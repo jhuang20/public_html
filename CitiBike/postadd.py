@@ -23,6 +23,9 @@ def csvWrite():
     duration=FStoD()['duration']
     size=FStoD()['size']
     description=FStoD()['description']
+    description=description.replace(', ','_')
+    description=description.replace('\n',' ')
+    description=description.replace('\r',' ')
     type=FStoD()['type']
     if type=="volunteering":
 	typeCode=3

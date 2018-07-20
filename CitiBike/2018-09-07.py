@@ -6,7 +6,7 @@ form=cgi.FieldStorage()
 print '''Content-type: text/html'''
 print
 def getnumber():
-    csvfile=open('2018-09-02.csv','r')
+    csvfile=open('2018-09-07.csv','r')
     lines=csvfile.readlines()
     csvfile.close()
     counter=0
@@ -14,7 +14,7 @@ def getnumber():
 	counter+=1
     return counter
 def isFull():
-    if getnumber()>100:
+    if getnumber()>75:
 	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
     else:
 	return ""
@@ -24,7 +24,7 @@ def header():
 <head>
   <link rel="shortcut icon" type="image/png" href="../logo.png" />
 </head>
-<title>Stuybikes!</title>
+<title>Free Access Fridays</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -101,10 +101,10 @@ body, html {
 </div>
         
  <div id="body" class="w3-content w3-padding-64">
-        <h1 class="w3-center">Stuybikes!</h1>
-        <h3 class="w3-center">Sign up for this date:2018-09-02 at 12:00 until 4:15</h3>
-<p>There are '''+str(100-getnumber())+'''  spots available out of  100</p>
-<h3 id="event">Fill out this form!</h3><br>'''+isFull()+'''<form action="submit.py">
+        <h1 class="w3-center">Free Access Fridays</h1>
+        <h3 class="w3-center">You are signing up for 2018-09-07 at 3:00 until 5:00</h3>
+<p>There are '''+str(75-getnumber())+'''  spots available out of  75</p>
+<h3 id="event">Description</h3><p>Want to try out CitiBike? Want to bike with a friend? Want to have a lit time and try new things? Free Access Fridays is a chance to try out a CitiBike for a day! Up to 75 people can register, and we encourage you to invite your friends along too!</p>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName" required="required"></input>
 Last Name::<input name="lastName" required="required"></input>
@@ -113,7 +113,7 @@ Last Name::<input name="lastName" required="required"></input>
 OSIS:<input name="osis" required="required"></input><br>
 Email: <input name="contact" required="required"></input><br>
 <input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program.<br>
-<input type="hidden" id="file" name="file" value='2018-09-02'>
+<input type="hidden" id="file" name="file" value='2018-09-07'>
    <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
           <i class="fa fa-bicycle"></i>Register!
         </button>
