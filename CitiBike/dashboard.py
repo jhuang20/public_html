@@ -50,7 +50,7 @@ def main():
     <h1>Control Center</h1>
     <h2>If you are not an admin, please send us a message on the contact page()</h2>
     <p><a href="#blog">Make blog post</a></p><p><a href="#msg">Look at MSG</a></p><p><a href="#event">Create event</a></p><p><a href="#eventmanage">Manage Event</a></p>
-<h2><a href="http://homer.stuy.edu/~jhuang20">LINK TO MAIN PAGE</a></h2>
+<h2><a href="http://stuybikes.com">LINK TO MAIN PAGE</a></h2>
     <h3 id="blog">Make a Blog Post</h3>
     <h4>NOTE: you cannot delete blog posts</h4>
     <form action="eventadd.py">

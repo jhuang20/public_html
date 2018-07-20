@@ -89,10 +89,10 @@ body, html {
     </a>
     <a href="#home" class="w3-black  w3-button">HOME</a>
 <a href="#about" class="w3-black w3-button "><i class="fa fa-building"></i> OUR MISSION</a>
-    <a href="CitiBike/signup.html" class="w3-black w3-button "><i class="fa fa-bicycle"></i> SIGN UP</a>
-    <a href="CitiBike/blog.html" class=" w3-black w3-button "><i class="fa fa-user"></i> BLOG</a>
-    <a href="#FAQ" class="w3-black w3-button "><i class="fa fa-question"></i> Information </a>
-    <a href="#contact" class="w3-black w3-button "><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="../CitiBike/signup.html" class="w3-black w3-button "><i class="fa fa-bicycle"></i> SIGN UP</a>
+    <a href="../CitiBike/blog.html" class=" w3-black w3-button "><i class="fa fa-user"></i> BLOG</a>
+    <a href="../#FAQ" class="w3-black w3-button "><i class="fa fa-question"></i> Information </a>
+    <a href="../#contact" class="w3-black w3-button "><i class="fa fa-envelope"></i> CONTACT</a>
   </div>
 </div>
 

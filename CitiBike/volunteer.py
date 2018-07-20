@@ -117,18 +117,18 @@ body, html {
     <a href="../index.html" class="w3-black  w3-button">HOME</a>
     <a href="../CitiBike/signup.html" class="w3-black w3-button w3-hide-small"><i class="fa fa-bicycle"></i> SIGN UP</a>
     <a href="../CitiBike/blog.html" class=" w3-black w3-button w3-hide-small"><i class="fa fa-user"></i> BLOG</a>
-    <a href="http://homer.stuy.edu/~jhuang20/index.html#FAQ" class="w3-black w3-button w3-hide-small"><i class="fa fa-question"></i> INFORMATION </a>
-    <a href="#contact" class="w3-black w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="../#FAQ" class="w3-black w3-button w3-hide-small"><i class="fa fa-question"></i> INFORMATION </a>
+    <a href="../#contact" class="w3-black w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
   </div>
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
     <a href="index.html" class="w3-bar-item w3-button w3-hide-small">
         <img src="../logo.png" height=40 width=100>
     </a>
-    <a href="#home" class="w3-black  w3-button">HOME</a>
-<a href="#about" class="w3-black w3-button "><i class="fa fa-building"></i> OUR MISSION</a>
-    <a href="../signup.html" class="w3-black w3-button "><i class="fa fa-bicycle"></i> SIGN UP</a>
-    <a href="../blog.html" class=" w3-black w3-button "><i class="fa fa-user"></i> BLOG</a>
+    <a href="../#home" class="w3-black  w3-button">HOME</a>
+<a href="../#about" class="w3-black w3-button "><i class="fa fa-building"></i> OUR MISSION</a>
+    <a href="../CitiBike/signup.html" class="w3-black w3-button "><i class="fa fa-bicycle"></i> SIGN UP</a>
+    <a href="blog.html" class=" w3-black w3-button "><i class="fa fa-user"></i> BLOG</a>
     <a href="../#FAQ" class="w3-black w3-button "><i class="fa fa-question"></i> Information </a>
     <a href="../#contact" class="w3-black w3-button "><i class="fa fa-envelope"></i> CONTACT</a>
   </div>

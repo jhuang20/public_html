@@ -19,7 +19,7 @@ def csvWrite():
     name=FStoD()['author']
     email=FStoD()['email']
     msg=FStoD()['message']
-    myCsvRow="<br><b>"+name+" </b>"+","+" "+email+" "+","+" "+msg+" <br>"
+    myCsvRow="<br><b>"+name+" </b>"+","+" "+email+" "+","+" "+msg+" <br> \n"
     fd.write(myCsvRow)
     fd.close()
 def user():

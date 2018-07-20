@@ -1,2 +1,2 @@
-ErrorDocument 404 http://homer.stuy.edu/~jhuang20/notfound.html
-ErrorDocument 500 http://homer.stuy.edu/~jhuang20/error.html
+ErrorDocument 404 http://stuybikes.com/public_html/notfound.html
+ErrorDocument 500 http://stuybikes.com/public_html/error.html

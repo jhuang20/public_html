@@ -28,7 +28,14 @@ body, html {height: 100%}
   $msg = wordwrap($msg,70);
 
   // send email
-  mail("jhuang20@stuy.edu","My subject",$msg);
+  if(mail("hjames034@gmail.com","jhuang20@stuy.edu","My subject",$msg)) {
+echo "message sent";
+}
+
+else
+{
+echo "error:message not accepted";
+}
   ?>
 
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
@@ -36,7 +43,7 @@ body, html {height: 100%}
     <img src="logo.png" height=50 width=100>
   </div>
   <div class="w3-display-middle">
-    <h1 class="w3-jumbo w3-animate-top">This isn't working yet!</h1>
+    <h1 class="w3-jumbo w3-animate-top">Testing!</h1>
     <hr class="w3-border-grey" style="margin:auto;width:40%">
     <p class="w3-large w3-center"><a href="index.html">Back to Homepage</a></p>
   </div>
