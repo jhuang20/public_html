@@ -134,8 +134,8 @@ body, html {
     <a href="../index.html" class="w3-black  w3-button">HOME</a>
     <a href="../CitiBike/signup.html" class="w3-black w3-button w3-hide-small"><i class="fa fa-bicycle"></i> SIGN UP</a>
     <a href="../CitiBike/blog.html" class=" w3-black w3-button w3-hide-small"><i class="fa fa-user"></i> BLOG</a>
-    <a href="http://homer.stuy.edu/~jhuang20/index.html#FAQ" class="w3-black w3-button w3-hide-small"><i class="fa fa-question"></i> INFORMATION </a>
-    <a href="#contact" class="w3-black w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="../index.html#FAQ" class="w3-black w3-button w3-hide-small"><i class="fa fa-question"></i> INFORMATION </a>
+    <a href="../#contact" class="w3-black w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
 
   </div>
 
@@ -173,7 +173,7 @@ body, html {
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
   <h3 class="w3-center w3-xxlarge">Choose an available class!</h3>
-  <p class="w3-center"><a href="http://homer.stuy.edu/~jhuang20/CitiBike/blog.html#StaySafe"><em>Why do I have to take a safety class?</em></a></p>
+  <p class="w3-center"><a href="blog.html#StaySafe"><em>Why do I have to take a safety class?</em></a></p>
   """+getEventCSV()+"""<div class="w3-row-padding w3-center w3-text-white">"""+"""</div><div class="w3-content w3-container" id="choose">
 <div id="attrib">
 </div>
