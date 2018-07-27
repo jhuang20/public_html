@@ -97,7 +97,7 @@ def makePage():
     '''
 def getevent():
 
-    csvfile = open('"""+date+""".csv', "r")#opens the file
+    csvfile = open('"""+det(date)+""".csv', "r")#opens the file
     lines= csvfile.readlines()
     csvfile.close()
     final=' '
@@ -120,7 +120,11 @@ def getevent():
     return final
 print makePage()
 """
-
+def det(abacus):
+    if FStoD()['type']==volunteering:
+	return abacus+'v'
+    else:
+	return abacus
 def makePage():
     return """#!/usr/bin/python
 import cgi,cgitb,os,csv
@@ -130,7 +134,7 @@ form=cgi.FieldStorage()
 print '''Content-type: text/html'''
 print
 def getnumber():
-    csvfile=open('"""+FStoD()['date']+""".csv','r')
+    csvfile=open('"""+det(FStoD()['date'])+""".csv','r')
     lines=csvfile.readlines()
     csvfile.close()
     counter=0
