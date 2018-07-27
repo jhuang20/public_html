@@ -17,9 +17,23 @@ def FStoD():
 
 def remove():
     tile=FStoD()['file']
-    os.remove(tile+".csv")
-    os.remove(tile+"-admin.py")
-    os.remove(tile+".py")
+    csvfile = open("events.csv", "r")#opens the file
+    lines= csvfile.readlines()
+    csvfile.close()
+    counter=0
+    for row in lines:
+        ret=row.split(",")#gives you the DATE of the Event
+        ping=ret[0]
+        if ping==tile:
+            if int(ret[5])==3:
+                os.remove(tile+"-v.csv")
+                os.remove(tile+"-v-admin.py")
+                os.remove(tile+"-v.py")
+            
+            else:
+                os.remove(tile+".csv")
+                os.remove(tile+"-admin.py")
+                os.remove(tile+".py")
     f = open("events.csv","r+")
     d = f.readlines()
     f.seek(0)
