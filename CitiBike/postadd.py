@@ -4,7 +4,7 @@ cgitb.enable()
 form=cgi.FieldStorage()
 print """Content-type: text/html\n\n"""
 print
-#this creates a new page!
+#this creates a new page for an event!
 def FStoD():
     '''
     Converts cgi.FieldStorage() return value into a standard dictionary
@@ -37,17 +37,30 @@ def csvWrite():
 
     fd.write(myCsvRow)
     fd.close()
-    pd=open(date+'.py','w')
-    pd.write(makePage())
-    pd.close()
-    os.chmod(date+'.py', 0777)
-    s=open(date+'-admin.py','w')
-    s.write(makeAdmin())
-    s.close()
-    os.chmod(date+'-admin.py',0777)
-    c=open(date+'.csv','w')
-    c.close()
-    os.chmod(date+'.csv',0777)
+    if typeCode==3:#special code to differentiate volunteerCode
+	pd=open(date+'-v.py','w')
+        pd.write(makePage())
+        pd.close()
+	os.chmod(date+'-v.py',0777)
+	s=open(date+'-v-admin.py','w')
+        s.write(makeAdmin())
+        s.close()
+        os.chmod(date+'-v-admin.py',0777)
+        c=open(date+'-v.csv','w')
+        c.close()
+        os.chmod(date+'-v.csv',0777)
+    else:
+	pd=open(date+'.py','w')
+        pd.write(makePage())
+        pd.close()
+        os.chmod(date+'.py', 0777)
+        s=open(date+'-admin.py','w')
+        s.write(makeAdmin())
+        s.close()
+        os.chmod(date+'-admin.py',0777)
+        c=open(date+'.csv','w')
+        c.close()
+        os.chmod(date+'.csv',0777)
 def makeAdmin():
     date=FStoD()['date']
     return """#!/usr/bin/python
