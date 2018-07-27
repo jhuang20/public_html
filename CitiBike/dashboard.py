@@ -17,7 +17,7 @@ def getEvent():#gets event DATE
         ping=ret[0]
         final+="""
 <div class="w3-col m3 container w3-text-black">"""
-        if int(ret[5])==3:
+        if int(ret[6])==3:
             final+="""<a href="""+ping+"""-v-admin.py>"""+str(ret)+"""</a>"""
         else:
             final+="""<a href="""+ping+"""-admin.py>"""+str(ret)+"""</a>"""
