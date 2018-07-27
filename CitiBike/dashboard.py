@@ -16,9 +16,12 @@ def getEvent():#gets event DATE
         ret=row.split(",")#gives you the DATE of the Event
         ping=ret[0]
         final+="""
-<div class="w3-col m3 container w3-text-black">
-        <a href="""+ping+"""-admin.py>"""+str(ret)+"""</a>
-        <form action="remove.py">
+<div class="w3-col m3 container w3-text-black">"""
+        if int(ret[5])==3:
+            final+="""<a href="""+ping+"""-v-admin.py>"""+str(ret)+"""</a>"""
+        else:
+            final+="""<a href="""+ping+"""-admin.py>"""+str(ret)+"""</a>"""
+        final+="""<form action="remove.py">
 <input type="hidden" id="file" name="file" value='"""+str(ping)+"""'>
   <input type="submit" value="Delete Event">
 </form></div>
