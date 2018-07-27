@@ -122,7 +122,7 @@ print makePage()
 """
 def det(abacus):
     if FStoD()['type']=="volunteering":
-	return abacus+'v'
+	return abacus+'-v'
     else:
 	return abacus
 def makePage():
