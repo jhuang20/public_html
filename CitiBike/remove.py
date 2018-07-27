@@ -25,7 +25,7 @@ def remove():
         ret=row.split(",")#gives you the DATE of the Event
         ping=ret[0]
         if ping==tile:
-            if int(ret[5])==3:
+            if int(ret[6])==3:
                 os.remove(tile+"-v.csv")
                 os.remove(tile+"-v-admin.py")
                 os.remove(tile+"-v.py")
