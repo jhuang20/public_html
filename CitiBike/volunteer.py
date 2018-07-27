@@ -45,7 +45,7 @@ def getEventCSV():#gets event DATE
             ping=ret[0]
             final+="""
 <div class="w3-col m3 container w3-text-black">
-        <a href="""+ping+""".py><button class="w3-button w3-black  w3-section" onmouseover="expand("""+str(counter)+""")">"""+ping+"""</button></a></div>
+        <a href="""+ping+"""-v.py><button class="w3-button w3-black  w3-section" onmouseover="expand("""+str(counter)+""")">"""+ping+"""</button></a></div>
         """
         counter+=1
     return final+"</div>"
