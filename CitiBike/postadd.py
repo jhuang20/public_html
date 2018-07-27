@@ -121,7 +121,7 @@ def getevent():
 print makePage()
 """
 def det(abacus):
-    if FStoD()['type']==volunteering:
+    if FStoD()['type']=="volunteering":
 	return abacus+'v'
     else:
 	return abacus
