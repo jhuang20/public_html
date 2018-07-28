@@ -156,7 +156,7 @@ body, html {
 </div>
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center w3-xxlarge">Group Rides are a great way to try CitiBike-- without a safety class!</h3>
+  <h3 class="w3-center w3-xxlarge">Help the green revolution!</h3>
   <p class="w3-center">We need volunteers to help with organizing events! As a volunteer, you not only get hours but also priority for any class you sign up for!</p>
   """+getEventCSV()+"""<div class="w3-row-padding w3-center w3-text-white">"""+"""</div><div class="w3-content w3-container" id="choose">
 <div id="attrib">
