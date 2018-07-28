@@ -6,7 +6,7 @@ form=cgi.FieldStorage()
 print '''Content-type: text/html'''
 print
 def getnumber():
-    csvfile=open('2018-08-27.csv','r')
+    csvfile=open('2018-08-27-v.csv','r')
     lines=csvfile.readlines()
     csvfile.close()
     counter=0
@@ -14,7 +14,7 @@ def getnumber():
 	counter+=1
     return counter
 def isFull():
-    if getnumber()>25:
+    if getnumber()>1:
 	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
     else:
 	return ""
@@ -103,21 +103,17 @@ body, html {
  <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">Stuybikes!</h1>
         <h3 class="w3-center">You are signing up for 2018-08-27 at 12:00 until 03:00</h3>
-<p>There are '''+str(25-getnumber())+'''  spots available out of  25</p>
-<h3 id="event">Description</h3><p>Sign up quickly! Spots are limited! 
-"Stuybikes!" is a 3 hour comprehensive safety course taught by experienced instructors. Participants will learn all about using CitiBike, road riding, and safety tips, and will get to practice these skills in a group ride//a controlled environment. Upon completion of the course, participants will recieve a helmet, some swag, and of course a FREE CitiBike annual membership(Normal Price:$169). Drinks and food will be served :) be there or be square</p>'''+isFull()+'''<form action="submit.py">
+<p>There are '''+str(1-getnumber())+'''  spots available out of  1</p>
+<h3 id="event">Description</h3><p>Don't sign up for this-this is a test</p>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName" required="required"></input>
 Last Name::<input name="lastName" required="required"></input>
 <br>
 <br>Birthday:<input type="date" name="date" required="required"><br>
 OSIS:<input name="osis" required="required"></input><br>
-Email: <input name="contact" required="required"></input><br>Are you a first time rider?<br>
-<select name="firsttime" size="2">
-<option value="yes">yes</option>
-<option value="no">no</option></select><br>
+Email: <input name="contact" required="required"></input><br>
 <input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program. I understand that I have to be 16 years old to use CitiBike.<br>
-<input type="hidden" id="file" name="file" value='2018-08-27'>
+<input type="hidden" id="file" name="file" value='2018-08-27-v'>
    <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
           <i class="fa fa-bicycle"></i>Register!
         </button>

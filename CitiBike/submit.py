@@ -30,6 +30,7 @@ def csvWrite():
 	firsttime=''
     try:
 	essayresp=","+FStoD()['safety']+","+FStoD()['clarity']
+	essayresp=essayresp.replace('\n','')
     except KeyError:
 	essayresp=''
     if 2018-int(bday[:4])>=16:

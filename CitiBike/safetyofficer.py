@@ -6,7 +6,7 @@ form=cgi.FieldStorage()
 print '''Content-type: text/html'''
 print
 def getnumber():
-    csvfile=open('2018-08-27.csv','r')
+    csvfile=open('safetyofficer.csv','r')
     lines=csvfile.readlines()
     csvfile.close()
     counter=0
@@ -14,7 +14,7 @@ def getnumber():
 	counter+=1
     return counter
 def isFull():
-    if getnumber()>25:
+    if getnumber()>250000:
 	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
     else:
 	return ""
@@ -106,6 +106,7 @@ body, html {
 <h3 id="event">Description</h3><p>As Head Safety Officer, you will help ensure that the program is safe. That means helping produce a safety video, and also helping
 students ride a bike safely during group rides. In the future, you may also design a curriculum that will teach students about safe bike riding!
 <br>
+<form action="submit.py">
 First Name::<input name="firstName" required="required"></input>
 Last Name::<input name="lastName" required="required"></input>
 <br>
@@ -122,12 +123,12 @@ Do you have a learners permit?<br>
 What would you do as a safety officer to ensure that students are safe?(name specific initiatives)(250 words max)
 <textarea name="safety" rows="4" cols="50">
 Type a response here...
-</textarea>
+</textarea><br>
 Describe how you would teach students how to ride on a road safely(it can be a script or rough outline, what's impt is that it's clear)(250 words max)
 <textarea name="clarity"rows="4" cols="50">
 Type a response here...
 </textarea>
-
+<br>
 <input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program. I understand that I have to be 16 years old to use CitiBike.<br>
 <input type="hidden" id="file" name="file" value='safetyofficer'>
    <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
