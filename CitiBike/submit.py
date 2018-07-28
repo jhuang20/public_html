@@ -28,8 +28,14 @@ def csvWrite():
 	firsttime=","+FStoD()['firsttime']
     except KeyError:
 	firsttime=''
-    myCsvRow=""+osis+""+","+" "+lastName+" "+","+" "+firstName+","+contact+","+bday+firsttime+" \n"
-
+    try:
+	essayresp=","+FStoD()['safety']+","+FStoD()['clarity']
+    except KeyError:
+	essayresp=''
+    if 2018-int(bday[:4])>=16:
+        myCsvRow=""+osis+""+","+" "+lastName+" "+","+" "+firstName+","+contact+","+bday+firsttime+essayresp+" \n"
+    else:
+	myCsvRow=""
     fd.write(myCsvRow)
     fd.close()
 def isFull():
