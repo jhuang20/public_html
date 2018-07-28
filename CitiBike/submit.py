@@ -33,6 +33,8 @@ def csvWrite():
     fd.write(myCsvRow)
     fd.close()
 def isFull():
+    if FStoD()['file']=="safetyofficer":
+	return 'Thank you for applying! We will get back to you soon!'
     fd=open(getFile()+'.csv','r')
     lines= fd.readlines()
     fd.close()
