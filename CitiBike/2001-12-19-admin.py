@@ -32,7 +32,7 @@ def makePage():
     '''
 def getevent():
 
-    csvfile = open('2018-08-27.csv', "r")#opens the file
+    csvfile = open('2001-12-19.csv', "r")#opens the file
     lines= csvfile.readlines()
     csvfile.close()
     final=' '
@@ -40,16 +40,33 @@ def getevent():
     for j in lines:
 	count+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
-    final+="<p><b>"+str(count-25)+"</b> people are on waitlist</p>"
+    final+="<p><b>"+str(count-1)+"</b> people are on waitlist</p>"
     count=0
+    final+="<table style='width:100%'>"
+    final+='''<tr>
+    <th>Delete Person</th>
+    <th>Waitlist</th>
+    <th>OSIS</th>
+    <th>last name</th> 
+    <th>first name</th>
+    <th>email</th>
+    <th>birthday</th>
+    <th>first time?</th>
+    <th>here?(check off)</th></tr>
+    '''
     for show in lines:
-	if count<25:
-            ret=show.split(",")#gives you the DATE of the Event
-            final+=str(show)
-	    final+="<br>"
+    	final+="<tr>"
+	how=show.split(",")
+	if count<1:
+	    final+="<td><form action='rmperson.py'><input type='hidden' name='file' value='2'></input><input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='deleteperson'></input></td>"
+	    final+="<td>No</td>"
+            for i in how:
+            	final+="<td>"+str(i)+"</td>"
 	else:
-	    final+="<b>WAITLIST</b>"+str(show)
-	final+="<br>"
+	    final+="<td>Yes</td>"
+            for i in how:
+            	final+="<td>"+str(i)+"</td>"
+	final+="</tr>"
         count+=1
 
     return final

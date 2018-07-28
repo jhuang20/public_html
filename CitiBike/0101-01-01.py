@@ -6,7 +6,7 @@ form=cgi.FieldStorage()
 print '''Content-type: text/html'''
 print
 def getnumber():
-    csvfile=open('2018-08-27.csv','r')
+    csvfile=open('0101-01-01.csv','r')
     lines=csvfile.readlines()
     csvfile.close()
     counter=0
@@ -24,7 +24,7 @@ def header():
 <head>
   <link rel="shortcut icon" type="image/png" href="../logo.png" />
 </head>
-<title>Stuybikes!</title>
+<title>TEST</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -101,8 +101,8 @@ body, html {
 </div>
         
  <div id="body" class="w3-content w3-padding-64">
-        <h1 class="w3-center">Stuybikes!</h1>
-        <h3 class="w3-center">You are signing up for 2018-08-27 at 12:00 until 03:00</h3>
+        <h1 class="w3-center">TEST</h1>
+        <h3 class="w3-center">You are signing up for 0101-01-01 at 12:00 until 03:00</h3>
 <p>There are '''+str(25-getnumber())+'''  spots available out of  25</p>
 <h3 id="event">Description</h3><p>This is an Event Description...</p>'''+isFull()+'''<form action="submit.py">
 <br>
@@ -114,9 +114,9 @@ OSIS:<input name="osis" required="required"></input><br>
 Email: <input name="contact" required="required"></input><br>Are you a first time rider?<br>
 <select name="firsttime" size="2">
 <option value="yes">yes</option>
-<option value="no">no</option></select>
+<option value="no">no</option></select><br>
 <input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program. I understand that I have to be 16 years old to use CitiBike.<br>
-<input type="hidden" id="file" name="file" value='2018-08-27'>
+<input type="hidden" id="file" name="file" value='0101-01-01'>
    <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
           <i class="fa fa-bicycle"></i>Register!
         </button>

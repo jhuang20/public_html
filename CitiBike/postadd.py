@@ -107,25 +107,29 @@ def getevent():
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
     final+="<p><b>"+str(count-"""+FStoD()['size']+""")+"</b> people are on waitlist</p>"
     count=0
-    final+="<table style="width:100%">
+    final+="<table style='width:100%'>"
     final+='''<tr>
+    <th>Delete Person</th>
     <th>Waitlist</th>
     <th>OSIS</th>
     <th>last name</th> 
     <th>first name</th>
     <th>email</th>
     <th>birthday</th>
-    <th>first time?</th></tr>
+    <th>first time?</th>
+    <th>here?(check off)</th></tr>
     '''
     for show in lines:
     	final+="<tr>"
+	how=show.split(",")
 	if count<"""+FStoD()['size']+""":
+	    final+="<td><form action='rmperson.py'><input type='hidden' name='file' value='"""+det('2')+"""'></input><input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='deleteperson'></input></td>"
 	    final+="<td>No</td>"
-            for i in show:
+            for i in how:
             	final+="<td>"+str(i)+"</td>"
 	else:
 	    final+="<td>Yes</td>"
-            for i in show:
+            for i in how:
             	final+="<td>"+str(i)+"</td>"
 	final+="</tr>"
         count+=1
@@ -133,7 +137,7 @@ def getevent():
     return final
 print makePage()
 """
-def form(abacus):#adds options to form if this is a group ride
+def form(abacus):#adds options to form if this is a safety class
     if FStoD()['type']=='safetyclass':
 	return """Are you a first time rider?<br>
 <select name="firsttime" size="2">
