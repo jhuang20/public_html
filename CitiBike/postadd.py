@@ -123,7 +123,7 @@ def getevent():
     	final+="<tr>"
 	how=show.split(",")
 	if count<"""+FStoD()['size']+""":
-	    final+="<td><form action='rmperson.py'><input type='hidden' name='file' value='"""+det('2')+"""'></input><input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='deleteperson'></input></td>"
+	    final+="<td><form action='rmperson.py'><input type='hidden' name='file' value='"""+det(FStoD()['date'])+"""'></input><input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='deleteperson'></input></td>"
 	    final+="<td>No</td>"
             for i in how:
             	final+="<td>"+str(i)+"</td>"
