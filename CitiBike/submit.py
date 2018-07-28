@@ -24,7 +24,11 @@ def csvWrite():
     bday=FStoD()['date']
     osis=FStoD()['osis']
     contact=FStoD()['contact']
-    myCsvRow=""+osis+""+","+" "+lastName+" "+","+" "+firstName+","+contact+","+bday+" \n"
+    try:
+	firsttime=","+FStoD()['firsttime']
+    except KeyError:
+	firsttime=''
+    myCsvRow=""+osis+""+","+" "+lastName+" "+","+" "+firstName+","+contact+","+bday+firsttime+" \n"
 
     fd.write(myCsvRow)
     fd.close()
