@@ -107,14 +107,27 @@ def getevent():
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
     final+="<p><b>"+str(count-"""+FStoD()['size']+""")+"</b> people are on waitlist</p>"
     count=0
+    final+="<table style="width:100%">
+    final+='''<tr>
+    <th>Waitlist</th>
+    <th>OSIS</th>
+    <th>last name</th> 
+    <th>first name</th>
+    <th>email</th>
+    <th>birthday</th>
+    <th>first time?</th></tr>
+    '''
     for show in lines:
+    	final+="<tr>"
 	if count<"""+FStoD()['size']+""":
-            ret=show.split(",")#gives you the DATE of the Event
-            final+=str(show)
-	    final+="<br>"
+	    final+="<td>No</td>"
+            for i in show:
+            	final+="<td>"+str(i)+"</td>"
 	else:
-	    final+="<b>WAITLIST</b>"+str(show)
-	final+="<br>"
+	    final+="<td>Yes</td>"
+            for i in show:
+            	final+="<td>"+str(i)+"</td>"
+	final+="</tr>"
         count+=1
 
     return final
