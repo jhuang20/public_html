@@ -14,7 +14,7 @@ def getnumber():
 	counter+=1
     return counter
 def isFull():
-    if getnumber()>23:
+    if getnumber()>25:
 	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
     else:
 	return ""
@@ -102,8 +102,8 @@ body, html {
         
  <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">Stuybikes!</h1>
-        <h3 class="w3-center">You are signing up for 2018-08-27 at 1:00 until 4:00</h3>
-<p>There are '''+str(23-getnumber())+'''  spots available out of  23</p>
+        <h3 class="w3-center">You are signing up for 2018-08-27 at 12:00 until 03:00</h3>
+<p>There are '''+str(25-getnumber())+'''  spots available out of  25</p>
 <h3 id="event">Description</h3><p>Sign up quickly! Spots are limited! 
 "Stuybikes!" is a 3 hour comprehensive safety course taught by experienced instructors. Participants will learn all about using CitiBike, road riding, and safety tips, and will get to practice these skills in a group ride//a controlled environment. Upon completion of the course, participants will recieve a helmet, some swag, and of course a FREE CitiBike annual membership(Normal Price:$169). Drinks and food will be served :) be there or be square</p>'''+isFull()+'''<form action="submit.py">
 <br>

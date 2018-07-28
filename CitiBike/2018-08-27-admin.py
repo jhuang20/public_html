@@ -40,7 +40,7 @@ def getevent():
     for j in lines:
 	count+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
-    final+="<p><b>"+str(count-23)+"</b> people are on waitlist</p>"
+    final+="<p><b>"+str(count-25)+"</b> people are on waitlist</p>"
     count=0
     final+="<table style='width:100%'>"
     final+='''<tr>
@@ -57,8 +57,8 @@ def getevent():
     for show in lines:
     	final+="<tr>"
 	how=show.split(",")
-	if count<23:
-	    final+="<td><form action='rmperson.py'><input type='hidden' name='file' value='2'></input><input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='deleteperson'></input></td>"
+	if count<25:
+	    final+="<td><form action='rmperson.py'><input type='hidden' name='file' value='2018-08-27'></input><input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='deleteperson'></input></td>"
 	    final+="<td>No</td>"
             for i in how:
             	final+="<td>"+str(i)+"</td>"
