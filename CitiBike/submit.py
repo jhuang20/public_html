@@ -51,9 +51,9 @@ def isFull():
     for i in lines:#count people
         counter+=1
     if counter>ting:
-        return "You have been placed on the waitlist, stay in touch!"
+        return "Thank you for registering for the event!The event is currently full--but for some events we may prioritize first time riders! Check your emails!"
     else:
-        return "Thanks for registering for the event! Keep the DATE:"+date+" and time:"+time+" in mind! Check FB for updates!"
+        return "Thanks for registering for the event! Check your email for updates. We will email you if you have been accepted.  Check FB for updates to event info!"
         
         
 def user():

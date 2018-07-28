@@ -120,6 +120,14 @@ def getevent():
     return final
 print makePage()
 """
+def form(abacus):#adds options to form if this is a group ride
+    if FStoD()['type']=='safetyclass':
+	return """Are you a first time rider?<br>
+<select name="firsttime" size="2">
+<option value="yes">yes</option>
+<option value="no">no</option></select><br>"""
+    else:
+	return ""
 def det(abacus):
     if FStoD()['type']=="volunteering":
 	return abacus+'-v'
@@ -239,9 +247,9 @@ Last Name::<input name="lastName" required="required"></input>
 <br>
 <br>Birthday:<input type="date" name="date" required="required"><br>
 OSIS:<input name="osis" required="required"></input><br>
-Email: <input name="contact" required="required"></input><br>
-<input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program.<br>
-<input type="hidden" id="file" name="file" value='"""+FStoD()['date']+"""'>
+Email: <input name="contact" required="required"></input><br>"""+form(FStoD()['type'])+"""
+<input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program. I understand that I have to be 16 years old to use CitiBike.<br>
+<input type="hidden" id="file" name="file" value='"""+det(FStoD()['date'])+"""'>
    <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
           <i class="fa fa-bicycle"></i>Register!
         </button>
