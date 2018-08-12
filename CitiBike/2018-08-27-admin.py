@@ -32,7 +32,7 @@ def makePage():
     '''
 def getevent():
 
-    csvfile = open('0020-02-02.csv', "r")#opens the file
+    csvfile = open('2018-08-27.csv', "r")#opens the file
     lines= csvfile.readlines()
     csvfile.close()
     final=' '
@@ -40,8 +40,8 @@ def getevent():
     for j in lines:
 	count+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
-    final+="<p><b>"+str(count-2)+"</b> people are on waitlist</p>"
-    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"+FStoD()['file']+"'><input type='submit' value='deleteperson'></form></p>"
+    final+="<p><b>"+str(count-3)+"</b> people are on waitlist</p>"
+    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='submit' value='deleteperson'></form></p>"
     count=0
     final+="<table style='width:100%'>"
     final+='''<tr>

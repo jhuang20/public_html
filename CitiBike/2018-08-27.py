@@ -6,7 +6,7 @@ form=cgi.FieldStorage()
 print '''Content-type: text/html'''
 print
 def getnumber():
-    csvfile=open('0020-02-02.csv','r')
+    csvfile=open('2018-08-27.csv','r')
     lines=csvfile.readlines()
     csvfile.close()
     counter=0
@@ -14,7 +14,7 @@ def getnumber():
 	counter+=1
     return counter
 def isFull():
-    if getnumber()>2:
+    if getnumber()>3:
 	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
     else:
 	return ""
@@ -191,8 +191,8 @@ body, html {
         
  <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">TEST</h1>
-        <h3 class="w3-center">You are signing up for 0020-02-02 at 12:00 until 03:00</h3>
-<p>There are '''+str(2-getnumber())+'''  spots available out of  2</p>
+        <h3 class="w3-center">You are signing up for 2018-08-27 at 12:00 until 03:00</h3>
+<p>There are '''+str(3-getnumber())+'''  spots available out of  3</p>
 <h3 id="event">Description</h3><p>This is an Event Description...</p>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName" required="required"></input>
@@ -205,7 +205,7 @@ Email: <input name="contact" required="required"></input><br>Are you a first tim
 <option value="yes">yes</option>
 <option value="no">no</option></select><br>
 <input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program. I understand that I have to be 16 years old to use CitiBike.<br>
-<input type="hidden" id="file" name="file" value='0020-02-02'>
+<input type="hidden" id="file" name="file" value='2018-08-27'>
    <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
           <i class="fa fa-bicycle"></i>Register!
         </button>

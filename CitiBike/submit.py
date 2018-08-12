@@ -37,6 +37,7 @@ def csvWrite():
         myCsvRow=""+osis+""+","+" "+lastName+" "+","+" "+firstName+","+contact+","+bday+firsttime+essayresp+" \n"
     else:
 	myCsvRow=""
+	return "You are not old enough(your input indicates that you are less than 16 year old)"
     fd.write(myCsvRow)
     fd.close()
 def isFull():
