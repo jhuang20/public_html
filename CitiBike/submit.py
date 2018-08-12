@@ -26,15 +26,17 @@ def csvWrite():
     contact=FStoD()['contact']
     try:
 	firsttime=","+FStoD()['firsttime']
+	willuse=","+FStoD()['willuse']
     except KeyError:
 	firsttime=''
+	willuse=''
     try:
 	essayresp=","+FStoD()['safety']+","+FStoD()['clarity']
 	essayresp=essayresp.replace('\n','')
     except KeyError:
 	essayresp=''
     if 2018-int(bday[:4])>=16:
-        myCsvRow=""+osis+""+","+" "+lastName+" "+","+" "+firstName+","+contact+","+bday+firsttime+essayresp+" \n"
+        myCsvRow=""+osis+""+","+" "+lastName+" "+","+" "+firstName+","+contact+","+bday+firsttime+willuse+essayresp+" \n"
     else:
 	myCsvRow=""
 	return "You are not old enough(your input indicates that you are less than 16 year old)"
