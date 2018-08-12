@@ -117,6 +117,7 @@ def getevent():
     <th>email</th>
     <th>birthday</th>
     <th>first time?</th>
+    <th>frequency of use?</th>
     <th>here?(check off)</th></tr>
     '''
     for show in lines:
@@ -138,10 +139,15 @@ print makePage()
 """
 def form(abacus):#adds options to form if this is a safety class
     if FStoD()['type']=='safetyclass':
-	return """Are you a first time rider?<br>
+	return """Have you used CitiBike before?<br>
 <select name="firsttime" size="2">
 <option value="yes">yes</option>
-<option value="no">no</option></select><br>"""
+<option value="no">no</option></select><br>
+How frequently will you use CitiBike, if you were given the opportunity to?(very frequently is defined as 2+ times a day, frequently 5 times a week, infrequently less than 3 times a week)
+<select name="willuse" size="3">
+<option value="3">very frequently</option>
+<option value="2">frequently</option>
+<option value="1">infrequently</option></select><br>"""
     else:
 	return ""
 def det(abacus):
