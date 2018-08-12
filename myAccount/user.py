@@ -28,7 +28,7 @@ def getEvent():
         for person in vline:
             per=person.split(",")#gives you list of OSIS
             osisM=per[0]
-            if FStoD()['osis']==osisM:
+            if "208947879"==osisM:
                 fill+="REGISTERED FOR "+ret[1]+" on "+ret[0]+" starting at "+ret[2]+"<br>Event Description:"+ret[5]+"<br><br>"
                 break
                
@@ -194,7 +194,7 @@ body, html {
 </div>
         
  <div id="body" class="w3-content w3-padding-64">
-        <h1 class="w3-center">Event Schedule for'''+FStoD()['osis']+'''</h1>
+        <h1 class="w3-center">Event Schedule for 208947879</h1>
         <h3 class="w3-center">You can remove events here, and also see all the events you have signed up for. You will also be able to see whether you have been accepted for positions/selective classes(in a future update)</h3>
         <h4>Profile</h4>
         <h4>Events</h4><p>'''+getEvent()+'''</p>
