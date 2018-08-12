@@ -14,7 +14,7 @@ def FStoD():
     for k in formData.keys():
         d[k] = formData[k].value
     return d
-def getEvent(osis):
+def getEvent():
     fill="You are not registered for any events."
     csvfile = open("events.csv", "r")#opens the file
     lines= csvfile.readlines()
@@ -197,7 +197,7 @@ body, html {
         <h1 class="w3-center">Event Schedule for'''+FStoD()['osis']+'''</h1>
         <h3 class="w3-center">You can remove events here, and also see all the events you have signed up for. You will also be able to see whether you have been accepted for positions/selective classes(in a future update)</h3>
         <h4>Profile</h4>
-        <h4>Events</h4><p>'''+getEvent(FStoD()['osis'])+'''</p>
+        <h4>Events</h4><p>'''+getEvent()+'''</p>
 
 </div>
 <script>
