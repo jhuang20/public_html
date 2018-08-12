@@ -106,10 +106,39 @@ def getevent():
 	count+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
     final+="<p><b>"+str(count-"""+FStoD()['size']+""")+"</b> people are on waitlist</p>"
+    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-08-19'><input type='submit' value='deleteperson'></form></p>"
     count=0
     final+="<table style='width:100%'>"
     final+='''<tr>
-    <th>Delete Person</th>
+    <th>Waitlist</th>
+    <th>OSIS</th>
+    <th>last name</th> 
+    <th>first name</th>
+    <th>email</th>
+    <th>birthday</th>
+    <th>first time?</th>
+    <th>here?(check off)</th></tr>
+    '''
+    for show in lines:
+    	final+="<tr>"
+	how=show.split(",")
+	if count<25:
+	    final+="<td>No</td>"
+            for i in how:
+            	final+="<td>"+str(i)+"</td>"
+	else:
+	    final+="<td>Yes</td>"
+            for i in how:
+            	final+="<td>"+str(i)+"</td>"
+	final+="</tr>"
+        count+=1
+
+    return final
+print makePage()
+
+    count=0
+    final+="<table style='width:100%'>"
+    final+='''<tr>
     <th>Waitlist</th>
     <th>OSIS</th>
     <th>last name</th> 
@@ -123,7 +152,6 @@ def getevent():
     	final+="<tr>"
 	how=show.split(",")
 	if count<"""+FStoD()['size']+""":
-	    final+="<td><form action='rmperson.py'><input type='hidden' name='file' value='"""+det(FStoD()['date'])+"""'></input><input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='deleteperson'></input></td>"
 	    final+="<td>No</td>"
             for i in how:
             	final+="<td>"+str(i)+"</td>"
