@@ -78,7 +78,7 @@ def main():
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
 body, html {
     height: 100%;
-    color: black;
+    color: #000000;
     line-height: 1.8;
 }
 
@@ -92,21 +92,86 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url("../Citi-Bike.jpg");
+    background-image: url("Citi-Bike.jpg");
     min-height: 100%;
 }
 
+/* Second image (Portfolio) */
+.bgimg-2 {
+    background-image: url("Citi-Bike.jpg");
+    min-height: 400px;
+}
 
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("IMG_2705.jpg");
+    min-height: 400px;
+}
+.navpad {
+  font-size: 20px;    
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
 .centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.test {
+    color:black;
+}
+.dropdown {
+    float: left;
+  overflow: hidden;
+    
+}
+
+.dropdown .dropbtn {
+    font-size: 20px;    
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #959595;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 .container {
     position: relative;
     text-align: center;
-    color: white;
+    color: black;
 }
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
@@ -123,34 +188,49 @@ body, html {
   <!-- keep track of appearing and disappearing text in main page! -->
 
 <!-- Navbar (sit on top) -->
+  <header>
 <div class="w3-top">
   <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small">
+        <img src="logo.png" height=40 width=100>
     </a>
-    <a href="../index.html" class="w3-bar-item w3-button w3-hide-small">
-        <img src="../logo.png" height=40 width=100>
-    </a>
-    <a href="../index.html" class="w3-black  w3-button">HOME</a>
-    <a href="../CitiBike/signup.html" class="w3-black w3-button w3-hide-small"><i class="fa fa-bicycle"></i> SIGN UP</a>
-    <a href="../CitiBike/blog.html" class=" w3-black w3-button w3-hide-small"><i class="fa fa-user"></i> BLOG</a>
-    <a href="../index.html#FAQ" class="w3-black w3-button w3-hide-small"><i class="fa fa-question"></i> INFORMATION </a>
-    <a href="../#contact" class="w3-black w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-
+    <div class="dropdown">
+      <button class="dropbtn"><a href="http://stuybikes.com" style="text-decoration:none">Home</a>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#about">Our Mission</a>
+      <a href="#FAQ">Information</a>
+      <a href="#contact">Contact</a>
+    </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn"><a href="http://stuybikes.com/public_html/CitiBike/signup.html" style="text-decoration:none"><i class="fa fa-bicycle"></i>Sign up</a>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="http://stuybikes.com/public_html/CitiBike/group.py">Group Ride</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/signup.py">Membership</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Volunteer</a>
+    </div>
+    </div>
+    <div class="navpad">
+    <a href="CitiBike/blog.html" style="text-decoration:none" class="w3-hide-small navpad"><i class="fa fa-user"></i> BLOG</a>
+      <div class="w3-right w3-hide-small">
+        <a href="myAccount" style="text-decoration:none">My Account</a>
+      </div>
+    </div>
+        
+    </div>
   </div>
+  </header>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="../index.html" class="w3-bar-item w3-button w3-hide-small">
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small">
         <img src="logo.png" height=40 width=100>
     </a>
-    <a href="../#home" class="w3-black  w3-button">HOME</a>
-<a href="../#about" class="w3-black w3-button "><i class="fa fa-building"></i> OUR MISSION</a>
-    <a href="../CitiBike/signup.html" class="w3-black w3-button "><i class="fa fa-bicycle"></i> SIGN UP</a>
-    <a href="../CitiBike/blog.html" class=" w3-black w3-button "><i class="fa fa-user"></i> BLOG</a>
-    <a href="../#FAQ" class="w3-black w3-button "><i class="fa fa-question"></i> Information </a>
-    <a href="../#contact" class="w3-black w3-button "><i class="fa fa-envelope"></i> CONTACT</a>
-  </div>
+    <a href="http://stuybikes.com/public_html/CitiBike/blog.html" class=" w3-black w3-button"><i class="fa fa-user"></i> BLOG</a>
 </div>
 
 <!-- First Parallax Image with Logo Text -->
