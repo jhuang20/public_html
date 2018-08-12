@@ -82,7 +82,7 @@ body, html {
     border: none;
     outline: none;
     color: black;
-    padding: 14px 16px;
+    padding: 14px 15px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
