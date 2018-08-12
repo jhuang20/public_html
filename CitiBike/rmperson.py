@@ -32,7 +32,7 @@ def user():
 <html>
 <head>
   <link rel="shortcut icon" type="image/png" href="logo.png" />
-<meta http-equiv="refresh" content='0; url="""+FStoD()['file']+"""-admin.py'>
+<meta http-equiv="refresh" content='20; url="""+FStoD()['file']+"""-admin.py'>
 </head>
 <title>Dashboard</title>
 <body>
