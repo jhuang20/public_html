@@ -135,35 +135,6 @@ def getevent():
 
     return final
 print makePage()
-
-    count=0
-    final+="<table style='width:100%'>"
-    final+='''<tr>
-    <th>Waitlist</th>
-    <th>OSIS</th>
-    <th>last name</th> 
-    <th>first name</th>
-    <th>email</th>
-    <th>birthday</th>
-    <th>first time?</th>
-    <th>here?(check off)</th></tr>
-    '''
-    for show in lines:
-    	final+="<tr>"
-	how=show.split(",")
-	if count<"""+FStoD()['size']+""":
-	    final+="<td>No</td>"
-            for i in how:
-            	final+="<td>"+str(i)+"</td>"
-	else:
-	    final+="<td>Yes</td>"
-            for i in how:
-            	final+="<td>"+str(i)+"</td>"
-	final+="</tr>"
-        count+=1
-
-    return final
-print makePage()
 """
 def form(abacus):#adds options to form if this is a safety class
     if FStoD()['type']=='safetyclass':
