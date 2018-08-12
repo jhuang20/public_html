@@ -31,10 +31,7 @@ def getEvent():
             osisM=per[0]
             if "208947879"==osisM:
                 fill+="REGISTERED FOR "+ret[1]+" on "+ret[0]+" starting at "+ret[2]+"<br>Event Description:"+ret[5]+"<br><br>"
-                break
-               
-            
-            
+                break            
     return fill
 def header():
     return '''<!DOCTYPE html>
