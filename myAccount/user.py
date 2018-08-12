@@ -16,14 +16,14 @@ def FStoD():
     return d
 def getEvent():
     fill="You are not registered for any events."
-    csvfile = open("events.csv", "r")#opens the file
+    csvfile = open("../CitiBike/events.csv", "r")#opens the file
     lines= csvfile.readlines()
     csvfile.close()
     counter=0
     for row in lines:#look at each event, see if there is a match
         ret=row.split(",")#gives you the DATE of the Event
         ping=ret[0]
-        vfile= open(ping+".csv","r")#opens csv of THIS file
+        vfile= open("../CitiBike/"+ping+".csv","r")#opens csv of THIS file
         vline=vfile.readlines()
         for person in vline:
             per=person.split(",")#gives you list of OSIS
