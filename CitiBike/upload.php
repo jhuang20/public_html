@@ -20,9 +20,10 @@ if (1==1)
       }
     else
       {
-      move_uploaded_file($_FILES["file"]["tmp_name"],
-      "upload/" . $_FILES["file"]["name"]);
-      echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+      move_uploaded_file(
+  $_FILES["file"]["tmp_name"],
+  $_SERVER['DOCUMENT_ROOT'] . 'upload/' . $_FILES["file"]["name"]
+);
       }
     }
   }
