@@ -48,8 +48,17 @@ def main():
       <link rel="shortcut icon" type="image/png" href="../logo.png" />
     </head>
     <title>Dashboard</title>
+<style>
+#secure {
+display: none;
+}
+</style>
     <body>
-
+<form id="security">
+Enter Passcode:<input type="text" name="password">
+</form>
+<input type="button" value="Login" onclick="login()">
+    <div id="secure">
     <h1>Control Center</h1>
     <h2>If you are not an admin, please send us a message on the contact page()</h2>
     <p><a href="#blog">Make blog post</a></p><p><a href="#msg">Look at MSG</a></p><p><a href="#event">Create event</a></p><p><a href="#eventmanage">Manage Event</a></p>
@@ -65,8 +74,7 @@ def main():
   Tag:<input name="tag"></input>
   <br>
   <input type="submit">
-</form><br><h2 id="msg"> Message Dashboard</h2>"""+getmessage()+"""
-<h3 id="event">Make an Event</h3>
+</form><br><h2 id="msg"> Message Dashboard</h2>"""+getmessage()+"""<h3 id="event">Make an Event</h3>
 <form action="postadd.py">
 <br>
 Title::<input name="title" required="required"></input>
@@ -83,12 +91,19 @@ Capacity: <input name="size"></input><br>
 Description:<textarea name="description" rows="10" cols="30">This is an Event Description...</textarea><br>
   <input type="submit">
 </form>
-<h2 id="eventmanage">Event Manager</h2>"""+getEvent()+"""
+<h2 id="eventmanage">Event Manager</h2>"""+getEvent()+"""</div>
+<script>
+function login() {
+var x=document.getElementById("security")
+if(x.elements[0].value=="CBXStuy18") {
+document.getElementById("secure").style.display="block";
+}
+}
+</script>
 </body>
 </html>
     """
 
 #prints other part of GUI interface
 #def footer():
-
 print main()
