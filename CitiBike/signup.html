@@ -152,9 +152,6 @@ body, html {
     </div>
     <div class="navpad">
     <a href="../CitiBike/blog.html" style="text-decoration:none" class="w3-hide-small navpad"><i class="fa fa-user"></i> BLOG</a>
-      <div class="w3-right w3-hide-small">
-        <a href="myAccount" style="text-decoration:none">My Account</a>
-      </div>
     </div>
         
     </div>
@@ -171,12 +168,16 @@ body, html {
 
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle">
-    <!-- In the future, have tags and various types of posts -->
-    <div class="w3-display-middle">
-      <span class="w3-xxlarge w3-text-white w3-wide">SIGNUP</span>
+   <div class="w3-content" style="max-width:400px">
+      <p class="w3-text-white w3-xxlarge">Signup</p>
+      <a href="signup.py" class="w3-black w3-button "><i class="fa fa-bicycle"></i>Membership</a>
+      <a href="group.py" class="w3-black w3-button "><i class="fa fa-bicycle"></i>Group Ride</a>
+     <a href="volunteer.py" class="w3-black w3-button "><i class="fa fa-user"></i>Volunteer</a>
+     <br>
+     <a href="#about" class="w3-black w3-button ">What are each of these classes?</a>
+          
+                                                
     </div>
-
 
 
 
@@ -188,9 +189,9 @@ body, html {
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center w3-xxlarge">1. Are you a student?</h3>
-  <button onmouseover="expand(0)" class="w3-button w3-black w3-left w3-section">I'm a Student</button>
-  <button onmouseover="expand(1)" class="w3-button w3-black w3-right w3-section">I'm NOT a current student</button>
+  <h3 class="w3-center w3-xxlarge">Learn more about the programs we offer!</h3>
+  <button onmouseover="expand(0)" class="w3-button w3-black w3-left w3-section">Group Rides</button>
+  <button onmouseover="expand(1)" class="w3-button w3-black w3-right w3-section">Free Memberships</button>
 <div class="w3-content w3-container w3-padding-64" id="choose">
 <div id="attrib">
 </div>
@@ -222,12 +223,12 @@ function expand(int) {
 
 
 
-document.getElementById("attrib").innerHTML="<p class='w3-center w3-xlarge' id='attrib'>2. Choose between annual membership(yay!), group rides(invite a friend!), and volunteering!</p><a href='signup.py'><button class='w3-button w3-black w3-left w3-section'>Obtain a membership!</button></a><a href='group.py'><button class='w3-button w3-black w3-center w3-section'>Go on a group ride!</button></a><a href='volunteer.py'><button class='w3-button w3-black w3-right w3-section'>Volunteer!</button></a>";
+document.getElementById("attrib").innerHTML="<p class='w3-center w3-xlarge' id='attrib'>Group rides are a chance to try out CitiBike with friends! These are leisurely rides, usually around an hour long. Group riddes are open to all, and after riding with friends, you can explore the city on your own with a free day pass, included with every group ride.</p><a href='group.py'><button class='w3-button w3-black w3-center w3-section'>Go on a group ride!</button>";
 
 }
 
 else {
-  document.getElementById("attrib").innerHTML="<p class='w3-center w3-xlarge' id='attrib'>sorry! it'll be a while before we can provide free memberships to all Stuy-affiliated persons!";
+  document.getElementById("attrib").innerHTML="<p class='w3-center w3-xlarge' id='attrib'>You can sign up for a free membership by registering for a 3-hour safety class! Upon completion of this class, you will recieve a helmet, and of course a CitiBike membership. Perks include unlimited 45-minute rides, 24/7/365. Priority for memberships is given to first time riders.<a href='signup.py'><button class='w3-button w3-black w3-left w3-section'>Obtain a membership!</button>";
 
 }
 
