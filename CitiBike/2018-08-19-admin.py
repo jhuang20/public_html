@@ -58,7 +58,7 @@ def getevent():
     	final+="<tr>"
 	how=show.split(",")
 	if count<25:
-	    final+="<td><form action='rmperson.py'><input type='hidden' id='file' name='file' value='2018-08-19'></input><input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='deleteperson'></input></td>"
+	    final+="<td><form action='rmperson.py'><input type='hidden' id='file' name='file' value='2018-08-19'></input> <input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='delete person'></input></td>"
 	    final+="<td>No</td>"
             for i in how:
             	final+="<td>"+str(i)+"</td>"
