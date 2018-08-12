@@ -32,7 +32,7 @@ def makePage():
     '''
 def getevent():
 
-    csvfile = open('2018-08-12.csv', "r")#opens the file
+    csvfile = open('2018-08-19.csv', "r")#opens the file
     lines= csvfile.readlines()
     csvfile.close()
     final=' '
@@ -58,7 +58,7 @@ def getevent():
     	final+="<tr>"
 	how=show.split(",")
 	if count<25:
-	    final+="<td><form action='rmperson.py'><input type='hidden' name='file' value='2018-08-12'></input><input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='deleteperson'></input></td>"
+	    final+="<td><form action='rmperson.py'><input type='hidden' name='file' value='2018-08-19'></input><input type='hidden' name='osis' value="+how[0]+"></input><input type='submit' value='deleteperson'></input></td>"
 	    final+="<td>No</td>"
             for i in how:
             	final+="<td>"+str(i)+"</td>"
