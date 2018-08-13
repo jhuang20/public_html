@@ -22,27 +22,43 @@ def makePage():
 
     </head>
     <title>Console</title>
+<style>
+#secure {
+display: none;
+}
+</style>
     <body>
-
+<form id="security">
+Enter Passcode:<input type="text" name="password">
+</form>
+<input type="button" value="Login" onclick="login()">
+<div id="secure">
     <h1>Admin Console for Specified Event</h1>
     <h2>If you are not an admin, please send us a message on the contact page()</h2>
 <h2 id="eventmanage">Who's Going?</h2>'''+getevent()+'''
-</body>
+</div>
+<script>
+function login() {
+var x=document.getElementById("security");
+if(x.elements[0].value=="CBXStuy18"){
+document.getElementById("secure").style.display="block";
+}
+}
+</script></body>
 </html>
     '''
 def getevent():
 
-    csvfile = open('2018-08-19.csv', "r")#opens the file
+    csvfile = open('2018-08-26.csv', "r")#opens the file
     lines= csvfile.readlines()
     csvfile.close()
     final=' '
     count=0
     for j in lines:
 	count+=1
-	ow=j.split(",")
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
     final+="<p><b>"+str(count-25)+"</b> people are on waitlist</p>"
-    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-08-19'><input type='submit' value='deleteperson'></form></p>"
+    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-08-26'><input type='submit' value='deleteperson'></form></p>"
     count=0
     final+="<table style='width:100%'>"
     final+='''<tr>
@@ -53,6 +69,7 @@ def getevent():
     <th>email</th>
     <th>birthday</th>
     <th>first time?</th>
+    <th>frequency of use?</th>
     <th>here?(check off)</th></tr>
     '''
     for show in lines:

@@ -6,7 +6,7 @@ form=cgi.FieldStorage()
 print '''Content-type: text/html'''
 print
 def getnumber():
-    csvfile=open('2018-08-19.csv','r')
+    csvfile=open('2018-08-26.csv','r')
     lines=csvfile.readlines()
     csvfile.close()
     counter=0
@@ -191,10 +191,9 @@ body, html {
         
  <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">Group Ride #1</h1>
-        <h3 class="w3-center">You are signing up for 2018-08-19 at 12:00 until 03:00</h3>
+        <h3 class="w3-center">You are signing up for 2018-08-26 at 12:00 until 03:00</h3>
 <p>There are '''+str(25-getnumber())+'''  spots available out of  25</p>
-<h3 id="event">Description</h3><p>Get hype for our first group ride!(and bring your friends along too) Our first group ride will meet at the Tribeca Bridge, right at the CitiBike station. We will then ride up the Hudson River Greenway to Central Park. As an added bonus, you can use the day passes after the group ride, and enjoy CitiBiking through NYC! This event is limited to 25 people, and does require parental permission through a waiver release form. I cannot let you ride without a release form. The ride will be about 1.5 hours, and we will end at 5th Avenue and 90th Street. Stay tuned for updates!
-This is a RESCHEDULED event. Priority will be given to people who previously signed up.</p>'''+isFull()+'''<form action="submit.py">
+<h3 id="event">Description</h3><p>Get hype for our first group ride!(and bring your friends along too) Our first group ride will meet at the Tribeca Bridge, right at the CitiBike station. We will then ride up the Hudson River Greenway to Central Park. As an added bonus, you can use the day passes after the group ride, and enjoy CitiBiking through NYC! This event is limited to 25 people, and does require parental permission through a waiver release form. I cannot let you ride without a release form. The ride will be about 1.5 hours, and we will end at 5th Avenue and 90th Street. Stay tuned for updates! This is a RESCHEDULED event. Priority will be given to people who previously signed up.</p>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName" required="required"></input>
 Last Name::<input name="lastName" required="required"></input>
@@ -203,7 +202,7 @@ Last Name::<input name="lastName" required="required"></input>
 OSIS:<input name="osis" required="required"></input><br>
 Email: <input name="contact" required="required"></input><br>
 <input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program. I understand that I have to be 16 years old to use CitiBike.<br>
-<input type="hidden" id="file" name="file" value='2018-08-19'>
+<input type="hidden" id="file" name="file" value='2018-08-26'>
    <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
           <i class="fa fa-bicycle"></i>Register!
         </button>

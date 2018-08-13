@@ -87,12 +87,29 @@ def makePage():
 
     </head>
     <title>Console</title>
+<style>
+#secure {
+display: none;
+}
+</style>
     <body>
-
+<form id="security">
+Enter Passcode:<input type="text" name="password">
+</form>
+<input type="button" value="Login" onclick="login()">
+<div id="secure">
     <h1>Admin Console for Specified Event</h1>
     <h2>If you are not an admin, please send us a message on the contact page()</h2>
 <h2 id="eventmanage">Who's Going?</h2>'''+getevent()+'''
-</body>
+</div>
+<script>
+function login() {
+var x=document.getElementById("security");
+if(x.elements[0].value=="CBXStuy18"){
+document.getElementById("secure").style.display="block";
+}
+}
+</script></body>
 </html>
     '''
 def getevent():
@@ -143,7 +160,7 @@ def form(abacus):#adds options to form if this is a safety class
 <select name="firsttime" size="2">
 <option value="yes">yes</option>
 <option value="no">no</option></select><br>
-How frequently will you use CitiBike, if you were given the opportunity to?(very frequently is defined as 2+ times a day, frequently 5 times a week, infrequently less than 3 times a week)
+How frequently will you use CitiBike, if you were given the opportunity to?(very frequently is defined as 2+ times a day, frequently 5 times a week, infrequently less than 3 times a week)<br>
 <select name="willuse" size="3">
 <option value="3">very frequently</option>
 <option value="2">frequently</option>
