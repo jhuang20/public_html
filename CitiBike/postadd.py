@@ -125,6 +125,8 @@ def getevent():
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
     final+="<p><b>"+str(count-"""+FStoD()['size']+""")+"</b> people are on waitlist</p>"
     final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='submit' value='deleteperson'></form></p>"
+    final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
+    final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
     count=0
     final+="<table style='width:100%'>"
     final+='''<tr>
