@@ -172,7 +172,7 @@ body, html {
     </div>
     <div class="navpad">
     <a href="../CitiBike/blog.html" style="text-decoration:none" class="w3-hide-small navpad"><i class="fa fa-user"></i> BLOG</a>
-      <div class="w3-right w3-hide-small">
+      <div class="w3-right">
         <a href="myAccount" style="text-decoration:none">My Account</a>
       </div>
     </div>
