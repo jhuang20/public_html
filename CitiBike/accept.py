@@ -44,7 +44,7 @@ def user():
 <title>Dashboard</title>
 <body>
 <h1>You deleted a person!</h1>
-<p><a href="""+FStoD()['file']+"""-admin.py">back to event</a></p>
+<p><a href='"""+FStoD()['file']+"""-admin.py'>back to event</a></p>
 </body>
 </html>"""
 remove()
