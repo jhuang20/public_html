@@ -87,29 +87,30 @@ def makePage():
 
     </head>
     <title>Console</title>
-<style>
+    <style>
 #secure {
 display: none;
 }
 </style>
     <body>
-<form id="security">
+    <form id="security">
 Enter Passcode:<input type="text" name="password">
 </form>
 <input type="button" value="Login" onclick="login()">
-<div id="secure">
+<div class="secure">
     <h1>Admin Console for Specified Event</h1>
     <h2>If you are not an admin, please send us a message on the contact page()</h2>
 <h2 id="eventmanage">Who's Going?</h2>'''+getevent()+'''
 </div>
 <script>
 function login() {
-var x=document.getElementById("security");
-if(x.elements[0].value=="CBXStuy18"){
+var x=document.getElementById("security")
+if(x.elements[0].value=="CBXStuy18") {
 document.getElementById("secure").style.display="block";
 }
 }
-</script></body>
+</script>
+</body>
 </html>
     '''
 def getevent():
