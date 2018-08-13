@@ -22,34 +22,35 @@ def makePage():
 
     </head>
     <title>Console</title>
-<style>
+    <style>
 #secure {
 display: none;
 }
 </style>
     <body>
-<form id="security">
+    <form id="security">
 Enter Passcode:<input type="text" name="password">
 </form>
 <input type="button" value="Login" onclick="login()">
-<div id="secure">
+<div class="secure">
     <h1>Admin Console for Specified Event</h1>
     <h2>If you are not an admin, please send us a message on the contact page()</h2>
 <h2 id="eventmanage">Who's Going?</h2>'''+getevent()+'''
 </div>
 <script>
 function login() {
-var x=document.getElementById("security");
-if(x.elements[0].value=="CBXStuy18"){
+var x=document.getElementById("security")
+if(x.elements[0].value=="CBXStuy18") {
 document.getElementById("secure").style.display="block";
 }
 }
-</script></body>
+</script>
+</body>
 </html>
     '''
 def getevent():
 
-    csvfile = open('2018-08-27.csv', "r")#opens the file
+    csvfile = open('2018-09-06.csv', "r")#opens the file
     lines= csvfile.readlines()
     csvfile.close()
     final=' '
@@ -58,9 +59,7 @@ def getevent():
 	count+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
     final+="<p><b>"+str(count-25)+"</b> people are on waitlist</p>"
-    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='submit' value='deleteperson'></form></p>"
-    final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
-    final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
+    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-09-06'><input type='submit' value='deleteperson'></form></p>"
     count=0
     final+="<table style='width:100%'>"
     final+='''<tr>
@@ -72,38 +71,20 @@ def getevent():
     <th>birthday</th>
     <th>first time?</th>
     <th>frequency of use?</th>
-    <th>accept/reject</th>
     <th>here?(check off)</th></tr>
     '''
     for show in lines:
     	final+="<tr>"
-	counter=0
 	how=show.split(",")
 	if count<25:
 	    final+="<td>No</td>"
-	    counter=0
             for i in how:
-	        if counter<7:
-            	    final+="<td>"+str(i)+"</td>"
-		else:
-		    final+="<td>"+str(how[-1])+"</td>"
-		    break
-	        counter+=1
+            	final+="<td>"+str(i)+"</td>"
 	else:
 	    final+="<td>Yes</td>"
-	    counter=0
             for i in how:
-	        if counter<7:
-            	    final+="<td>"+str(i)+"</td>"
-		else:
-		    final+="<td>"+str(how[-1])+"</td>"
-		    break
-		counter+=1
-	if counter<7:
-	    final+="<td>pending</td>"
+            	final+="<td>"+str(i)+"</td>"
 	final+="</tr>"
-	#final+="<td><form action='accept.py'><input type='hidden' name='osis' value='"+how[0]+"'><input type='hidden' name='file' value='2018-08-27'><input type='hidden' name='accept' value='1'><input type='submit' value='accept'></form></td>"
-	#final+="<td><form action='accept.py'><input type='hidden' name='osis' value='"+how[0]+"'><input type='hidden' name='file' value='2018-08-27'><input type='hidden' name='accept' value='0'><input type='submit' value='reject'></td></tr>"
         count+=1
 
     return final

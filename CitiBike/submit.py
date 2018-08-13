@@ -67,9 +67,9 @@ def isFull():
     for i in lines:#count people
         counter+=1
     if counter>ting:
-        return "Thank you for registering for the event!The event is currently full--but for some events we may prioritize first time riders! Check your emails!"
+        return "This event is full, but check your application status by going to my account."
     else:
-        return "Thanks for registering for the event! Check your email for updates. We will email you if you have been accepted.  Check FB for updates to event info!"
+        return "you have registered for the event! Check your application status by going to My Account."
         
         
 def user():

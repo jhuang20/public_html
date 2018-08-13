@@ -16,13 +16,20 @@ def FStoD():
     return d
 
 def remove():
+    nile=FStoD()['admit']
     tile=FStoD()['file']
-    csvfile = open("../CitiBike/"+tile+".csv", "r+")#opens the file
+    csvfile = open(tile+".csv", "r+")#opens the file
     lines= csvfile.readlines()
     csvfile.seek(0)
     for i in lines:
-        if not FStoD()['osis'] in i:
-            csvfile.write(i)
+        if FStoD()['osis'] in i:
+	    if nile==1:
+	        i=i.rstrip('\n')+',accept \n'
+            else:
+		i=i.rstrip('\n')+',reject \n'
+	    csvfile.write(i)
+	else:
+	    csvfile.write(i)
     csvfile.truncate()
     csvfile.close()
 
@@ -32,12 +39,12 @@ def user():
 <html>
 <head>
   <link rel="shortcut icon" type="image/png" href="logo.png" />
+<meta http-equiv="refresh" content='20; url="""+FStoD()['file']+"""-admin.py'>
 </head>
-<title>Confirmation</title>
+<title>Dashboard</title>
 <body>
-<form action="hello.py"><input type="hidden" id="osis" name="osis" value='"""+FStoD()['osis']+"""'><input type="submit" name="Back to your Profile"></form>
-<h1>Click the go back to profile button to go back to your profile</h1>
-<p>You have de-registered from the event on """+FStoD()['file']+""" successfully</p>
+<h1>You deleted a person!</h1>
+<p><a href="""+FStoD()['file']+"""-admin.py">back to event</a></p>
 </body>
 </html>"""
 remove()
