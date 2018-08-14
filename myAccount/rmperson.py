@@ -35,7 +35,7 @@ def user():
 </head>
 <title>Confirmation</title>
 <body>
-<form action="hello.py"><input type="hidden" id="osis" name="osis" value='"""+FStoD()['osis']+"""'><input type="submit" name="Back to your Profile"></form>
+<form action="hello.py"><input type="hidden" id="osis" name="osis" value='"""+FStoD()['osis']+"""'><input type="submit" value="Back to your Profile"></form>
 <h1>Click the go back to profile button to go back to your profile</h1>
 <p>You have de-registered from the event on """+FStoD()['file']+""" successfully</p>
 </body>

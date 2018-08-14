@@ -14,7 +14,7 @@ def getnumber():
 	counter+=1
     return counter
 def isFull():
-    if getnumber()>25:
+    if getnumber()>250:
 	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
     else:
 	return ""
@@ -192,7 +192,7 @@ body, html {
  <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">Stuybikes!</h1>
         <h3 class="w3-center">You are signing up for 2018-08-27 at 12:00 until 03:00</h3>
-<p>There are '''+str(25-getnumber())+'''  spots available out of  25</p>
+<p>There are '''+str(getnumber())+'''  people signed up for 25 spots</p>
 <h3 id="event">Description</h3><p>"Stuybikes!" is a 3 hour comprehensive safety course taught by experienced instructors. Participants will learn all about using CitiBike, road riding, and safety tips, and will get to practice these skills in a group ride//a controlled environment. Upon completion of the course, participants will recieve a helmet, some swag, and of course a FREE CitiBike annual membership(Normal Price:$169). Priority will be given to those who haven't used CitiBike in the past, and those who will likely use CitiBike frequently.</p>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName" required="required"></input>
@@ -201,11 +201,11 @@ Last Name::<input name="lastName" required="required"></input>
 <br>Birthday:<input type="date" name="date" required="required"><br>
 OSIS:<input name="osis" required="required"></input><br>
 Email: <input name="contact" required="required"></input><br>Have you used CitiBike before?<br>
-<select name="firsttime" size="2">
+<select name="firsttime" size="2" required="required">
 <option value="yes">yes</option>
 <option value="no">no</option></select><br>
 How frequently will you use CitiBike, if you were given the opportunity to?(very frequently is defined as 2+ times a day, frequently 5 times a week, infrequently less than 3 times a week)<br>
-<select name="willuse" size="3">
+<select name="willuse" size="3" required="required">
 <option value="3">very frequently</option>
 <option value="2">frequently</option>
 <option value="1">infrequently</option></select><br>

@@ -54,10 +54,14 @@ def getevent():
     csvfile.close()
     final=' '
     count=0
+    countAcceptance=0
     for j in lines:
 	count+=1
+	meow=j.split(",")
+	if str(meow[-1])=="accept \n":
+	    countAcceptance+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
-    final+="<p><b>"+str(count-25)+"</b> people are on waitlist</p>"
+    final+="<p><b>"+str(countAcceptance)+"</b> people have been accepted </p>"
     final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='submit' value='deleteperson'></form></p>"
     final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
     final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
@@ -70,7 +74,7 @@ def getevent():
     <th>first name</th>
     <th>email</th>
     <th>birthday</th>
-    <th>first time?</th>
+    <th>have used citibike before?</th>
     <th>frequency of use?</th>
     <th>accept/reject</th>
     <th>here?(check off)</th></tr>

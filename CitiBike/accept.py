@@ -23,7 +23,7 @@ def remove():
     csvfile.seek(0)
     for i in lines:
         if FStoD()['osis'] in i:
-	    if nile==1:
+	    if nile=='1':
 	        i=i.rstrip('\n')+',accept \n'
             else:
 		i=i.rstrip('\n')+',reject \n'
@@ -43,7 +43,7 @@ def user():
 </head>
 <title>Dashboard</title>
 <body>
-<h1>You deleted a person!</h1>
+<h1>You accepted/rejected a person</h1>
 <p><a href='"""+FStoD()['file']+"""-admin.py'>back to event</a></p>
 </body>
 </html>"""

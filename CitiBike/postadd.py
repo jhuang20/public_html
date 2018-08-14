@@ -5,6 +5,7 @@ form=cgi.FieldStorage()
 print """Content-type: text/html\n\n"""
 print
 #this creates a new page for an event!
+#this function converts key values to dictionary
 def FStoD():
     '''
     Converts cgi.FieldStorage() return value into a standard dictionary
@@ -14,7 +15,7 @@ def FStoD():
     for k in formData.keys():
         d[k] = formData[k].value
     return d
-
+#this function writes to the events.csv file
 def csvWrite():
     fd = open('events.csv','a')
     title=FStoD()['title']
@@ -37,7 +38,7 @@ def csvWrite():
 
     fd.write(myCsvRow)
     fd.close()
-    if typeCode==3:#special code to differentiate volunteerCode
+    if typeCode==3: #special code to differentiate volunteerCode
 	pd=open(date+'-v.py','w')
         pd.write(makePage())
         pd.close()
@@ -61,6 +62,7 @@ def csvWrite():
         c=open(date+'.csv','w')
         c.close()
         os.chmod(date+'.csv',0777)
+#makes admin (backend side)
 def makeAdmin():
     date=FStoD()['date']
     return """#!/usr/bin/python
@@ -120,13 +122,20 @@ def getevent():
     csvfile.close()
     final=' '
     count=0
+    countAcceptance=0
     for j in lines:
 	count+=1
+	isAccept=j.split(",")
+	if isAccept[-1]=="accept /n":
+	    countAcceptance+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
-    final+="<p><b>"+str(count-"""+FStoD()['size']+""")+"</b> people are on waitlist</p>"
+    if '"""+FStoD()['type']+"""'!='safetyclass':
+        final+="<p><b>"+str(count-"""+FStoD()['size']+""")+"</b> people are on waitlist</p>"
     final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='submit' value='deleteperson'></form></p>"
-    final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
-    final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
+    if '"""+FStoD()['type']+"""'=='safetyclass':
+	final+="<p><b>"+str(countAcceptance)+" people have been accepted</b></p>"
+	final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
+        final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
     count=0
     final+="<table style='width:100%'>"
     final+='''<tr>
@@ -136,8 +145,9 @@ def getevent():
     <th>first name</th>
     <th>email</th>
     <th>birthday</th>
-    <th>first time?</th>
+    <th>have used citibike b4?</th>
     <th>frequency of use?</th>
+    <th> accept/reject</th>
     <th>here?(check off)</th></tr>
     '''
     for show in lines:
@@ -157,7 +167,7 @@ def getevent():
     return final
 print makePage()
 """
-def form(abacus):#adds options to form if this is a safety class
+def form(abacus): #adds options to form if this is a safety class
     if FStoD()['type']=='safetyclass':
 	return """Have you used CitiBike before?<br>
 <select name="firsttime" size="2">
@@ -175,6 +185,7 @@ def det(abacus):
 	return abacus+'-v'
     else:
 	return abacus
+#makes user page
 def makePage():
     return """#!/usr/bin/python
 import cgi,cgitb,os,csv
@@ -190,12 +201,24 @@ def getnumber():
     counter=0
     for i in lines:
 	counter+=1
-    return counter
+    return counter"""+appendUser()+pager()
+def appendUser():
+    str="""
 def isFull():
     if getnumber()>"""+FStoD()['size']+""":
 	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
     else:
 	return ""
+"""
+    if FStoD()['type']=="safetyclass":
+	return """
+def isFull():
+    return ""
+"""
+    else:
+        return str
+def pager():
+    return """
 def header():
     return '''<!DOCTYPE html>
 <html>
@@ -370,7 +393,7 @@ body, html {
  <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">"""+FStoD()['title']+"""</h1>
         <h3 class="w3-center">You are signing up for """+FStoD()['date']+""" at """+FStoD()['time']+""" until """ +FStoD()['duration']+"""</h3>
-<p>There are '''+str("""+FStoD()['size']+"""-getnumber())+'''  spots available out of  """+FStoD()['size']+"""</p>
+<p>There are '''+str(getnumber())+'''  people signed up for  """+FStoD()['size']+""" spots</p>
 <h3 id="event">Description</h3><p>"""+FStoD()['description']+"""</p>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName" required="required"></input>

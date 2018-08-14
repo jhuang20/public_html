@@ -33,7 +33,7 @@ def getType(num):
     else:
 	return "application"
 def getStatus(counter,line):
-    p=line#which row in csv file
+    p=line #which row in csv file
     csvfile=open("../CitiBike/events.csv","r")
     lines=csvfile.readlines()
     csvfile.close()
@@ -42,17 +42,22 @@ def getStatus(counter,line):
     for row in lines:
 	if currentLoc==line:
 	    ret=row.split(",")
-	    ping=int(ret[4])#returns capacity
+	    ping=int(ret[4]) #returns capacity
+	    break
 	else:
 	    currentLoc+=1
-    if admit==2:
+    if admit==2 and numero==1:
+	global admit
+	admit=0
 	return "accepted, monitor email"
-    if admit==3:
+    if admit==3 and numero==1:
+	global admit
+	admit=0
 	return "rejected"
-    if ping<=counter:
-	return "waitlisted, you will be emailed if accepted, check this page periodically"
     if numero==1:
-	return "pending, check email and the status page"+str(admit)
+	return "pending, check email and the status page"
+    if ping<int(counter):
+	return "waitlisted, you will be emailed if accepted, check this page periodically"+str(ping)
     else:
 	return "accepted, monitor email"
 def getDetail(name):
@@ -70,7 +75,7 @@ def getevent():
         vfile= open("../CitiBike/"+ping+".csv","r")#opens csv of THIS file
         vline=vfile.readlines()
 	vfile.close()
-        counter=0
+        counter=0 #counts the number of people there are
         for person in vline:
             per=person.split(",")#gives you list of OSIS
             osisM=per[0]

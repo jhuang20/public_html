@@ -53,6 +53,7 @@ def isFull():
     ting=0#finds the CAP of the event
     date=''
     time=''
+    type=''
     for j in find:
         ret=j.split(",")#gives you the DATE of the Event
         id=ret[0]
@@ -62,12 +63,15 @@ def isFull():
             ting=int(ping)
             date=ret[0]
             time=ret[2]
+	    type=ret[6]
             break
     counter=0
     for i in lines:#count people
         counter+=1
-    if counter>ting:
-        return "This event is full, but check your application status by going to my account."
+    if type=='1 \n':
+	return "Thanks for registering! To see the status of your registration, go to 'My Account' on the homepage"
+    elif counter>ting:
+        return "This event is full, you are on the waitlist. Check your application status periodically!."
     else:
         return "you have registered for the event! Check your application status by going to My Account."
         
