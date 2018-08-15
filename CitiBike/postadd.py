@@ -393,7 +393,7 @@ body, html {
  <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">"""+FStoD()['title']+"""</h1>
         <h3 class="w3-center">You are signing up for """+FStoD()['date']+""" at """+FStoD()['time']+""" until """ +FStoD()['duration']+"""</h3>
-<p>There are '''+str(getnumber())+'''  people signed up for  """+FStoD()['size']+""" spots</p>
+<p>There are """+FStoD()['size']+""" spots</p>
 <h3 id="event">Description</h3><p>"""+FStoD()['description']+"""</p>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName" required="required"></input>
