@@ -15,7 +15,7 @@ def FStoD():
     for k in formData.keys():
         d[k] = formData[k].value
     return d
-#this function writes to the events.csv file
+#this function writes to the events.csv file, should've used parameters LOL
 def csvWrite():
     fd = open('events.csv','a')
     title=FStoD()['title']
@@ -28,13 +28,13 @@ def csvWrite():
     description=description.replace('\n',' ')
     description=description.replace('\r',' ')
     type=FStoD()['type']
-    if type=="volunteering":
+    if type=="volunteering": #establishes special cases
 	typeCode=3
     elif type=="safetyclass":
 	typeCode=1
     else:
 	typeCode=2
-    myCsvRow=date+","+title+","+time+","+duration+","+size+","+description+","+str(typeCode)+" \n"
+    myCsvRow=date+","+title+","+time+","+duration+","+size+","+description+","+str(typeCode)+" \n" #writes out event to events.csv file, so that people can see it.
 
     fd.write(myCsvRow)
     fd.close()
@@ -50,7 +50,7 @@ def csvWrite():
         c=open(date+'-v.csv','w')
         c.close()
         os.chmod(date+'-v.csv',0777)
-    else:
+    else: #makes 3 files, one user front end, one csv for data, and one user backend
 	pd=open(date+'.py','w')
         pd.write(makePage())
         pd.close()
@@ -64,7 +64,7 @@ def csvWrite():
         os.chmod(date+'.csv',0777)
 #makes admin (backend side)
 def makeAdmin():
-    date=FStoD()['date']
+    date=FStoD()['date'] #the filename is the date of the event
     return """#!/usr/bin/python
 import cgi,cgitb,os
 cgitb.enable()
@@ -115,7 +115,7 @@ document.getElementById("secure").style.display="block";
 </body>
 </html>
     '''
-def getevent():
+def getevent(): #retreives event data
 
     csvfile = open('"""+det(date)+""".csv', "r")#opens the file
     lines= csvfile.readlines()
@@ -126,18 +126,18 @@ def getevent():
     for j in lines:
 	count+=1
 	isAccept=j.split(",")
-	if isAccept[-1]=="accept /n":
+	if isAccept[-1]=="accept /n": #counts number of acceptances(should use strip function )
 	    countAcceptance+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
     if '"""+FStoD()['type']+"""'!='safetyclass':
-        final+="<p><b>"+str(count-"""+FStoD()['size']+""")+"</b> people are on waitlist</p>"
+        final+="<p><b>"+str(count-"""+FStoD()['size']+""")+"</b> people are on waitlist</p>" #lists number of people who are signup up and waitlisted
     final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='submit' value='deleteperson'></form></p>"
     if '"""+FStoD()['type']+"""'=='safetyclass':
 	final+="<p><b>"+str(countAcceptance)+" people have been accepted</b></p>"
 	final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
         final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
-    count=0
-    final+="<table style='width:100%'>"
+    count=0 #the three lines above provide the ability to delete a person, accept a person, or reject a person. 
+    final+="<table style='width:100%'>" #backend table for easy access
     final+='''<tr>
     <th>Waitlist</th>
     <th>OSIS</th>
@@ -194,7 +194,7 @@ form=cgi.FieldStorage()
 
 print '''Content-type: text/html'''
 print
-def getnumber():
+def getnumber(): #retrieves # of people signed up
     csvfile=open('"""+det(FStoD()['date'])+""".csv','r')
     lines=csvfile.readlines()
     csvfile.close()
@@ -202,7 +202,7 @@ def getnumber():
     for i in lines:
 	counter+=1
     return counter"""+appendUser()+pager()
-def appendUser():
+def appendUser(): #adds info to the page IF certain conditions are met
     str="""
 def isFull():
     if getnumber()>"""+FStoD()['size']+""":
@@ -210,14 +210,14 @@ def isFull():
     else:
 	return ""
 """
-    if FStoD()['type']=="safetyclass":
+    if FStoD()['type']=="safetyclass": #if the event is a safety class, then the waitlist message will NOT appear
 	return """
 def isFull():
     return ""
 """
     else:
         return str
-def pager():
+def pager(): #returns the rest of the page
     return """
 def header():
     return '''<!DOCTYPE html>

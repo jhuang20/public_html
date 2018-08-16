@@ -4,7 +4,7 @@ cgitb.enable()
 form=cgi.FieldStorage()
 print """Content-type: text/html\n\n"""
 print
-#this creates a new page!
+#this accepts/rejects a person
 def FStoD():
     '''
     Converts cgi.FieldStorage() return value into a standard dictionary
@@ -15,14 +15,14 @@ def FStoD():
         d[k] = formData[k].value
     return d
 
-def remove():
-    nile=FStoD()['admit']
-    tile=FStoD()['file']
+def remove(): #lists out all the necessary variables to find
+    nile=FStoD()['admit'] #0 means reject, 1 means admit
+    tile=FStoD()['file'] #file name to find the csv
     csvfile = open(tile+".csv", "r+")#opens the file
     lines= csvfile.readlines()
     csvfile.seek(0)
     for i in lines:
-        if FStoD()['osis'] in i:
+        if FStoD()['osis'] in i: #goes to line where OSIS is and changes status
 	    if nile=='1':
 	        i=i.rstrip('\n')+',accept \n'
             else:

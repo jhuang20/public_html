@@ -4,7 +4,7 @@ cgitb.enable()
 form=cgi.FieldStorage()
 print """Content-type: text/html\n\n"""
 print
-#this creates a new page!
+#this removes a person
 def FStoD():
     '''
     Converts cgi.FieldStorage() return value into a standard dictionary
@@ -15,7 +15,7 @@ def FStoD():
         d[k] = formData[k].value
     return d
 
-def remove():
+def remove(): #removes person by looking for OSIS in cgi and not writing it to the CSV file
     tile=FStoD()['file']
     csvfile = open(tile+".csv", "r+")#opens the file
     lines= csvfile.readlines()
@@ -26,7 +26,7 @@ def remove():
     csvfile.truncate()
     csvfile.close()
 
-def user():
+def user(): #confirms removal
     return """
     <!DOCTYPE html>
 <html>

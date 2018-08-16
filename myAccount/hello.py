@@ -4,7 +4,7 @@ cgitb.enable()
 form=cgi.FieldStorage()
 globs='null'  #personalization, says hi to you!
 numero=0 #if num is 1, adds specific message for safety class
-admit=0
+admit=0 #i think im going to condense this
 print '''Content-type: text/html'''
 print
 
