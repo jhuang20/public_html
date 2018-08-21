@@ -23,7 +23,7 @@ def newCode():
     content=FStoD()['content']
     tag=FStoD()['tag']
     tiempo= datetime.datetime.now()
-    return "<div id="+title+"> <h3 class='w3-center'>"+title+"</h3><br><p id='body' class='w3-left'>"+content+"""</p>
+    return "<div id='"+tag+"'> <h3 class='w3-center'>"+title+"</h3><br><p id='body' class='w3-left'>"+content+"""</p>
       <br><p class="w3-small w3-left">"""+str(tiempo.strftime("%Y-%m-%d %H:%M"))+"</p></div><br><br><br>"
 def addToBlog():
     fd = open('blog.html','r+')
