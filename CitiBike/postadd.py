@@ -136,6 +136,8 @@ def getevent(): #retreives event data
 	meow=j.split(",")
 	if str(meow[-1])=="accept \n":
 	    countAcceptance+=1
+	    if """+FStoD()['size']+""">countAcceptance:
+	        final+=str(meow[3])+"<br>
 	if str(meow[-1])=="confirm \n":
 	    countConfirm+=1
 	    final+=str(meow[3])+"<br>"
