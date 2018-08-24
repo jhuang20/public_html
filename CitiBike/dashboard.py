@@ -20,7 +20,7 @@ def getEvent():#gets event DATE
         final+="""
 <div class="w3-col m3 container w3-text-black">"""
         if int(ret[6])==3:
-            final+="""<a href="""+ping+"""-v-admin.py>"""+str(ret)+"""</a>"""
+            final+="""<a href="""+ping+"""-admin.py>"""+str(ret)+"""</a>"""
         else:
             final+="""<a href="""+ping+"""-admin.py>"""+str(ret)+"""</a>"""
         final+="""<form action="remove.py">
