@@ -124,9 +124,9 @@ def getevent(): #retreives event data
     final=' '
     count=0
     countAcceptance=0
-    final+="<form action='duplicate.py'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='date' name='newdate'><input type='submit' value='Reschedule'></form>"
-    final+="<form action='close.py'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='submit' value='Close Form'></form>"
-    final+="<form action='confirm.py'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='submit' value='View Roster'></form>"
+    final+="<form action='duplicate.py'><input type='hidden' id='file' name='file' value='"""+det(FStoD()['date'])+"""'><input type='date' name='newdate'><input type='submit' value='Reschedule'></form>"
+    final+="<form action='close.py'><input type='hidden' id='file' name='file' value='"""+det(FStoD()['date'])+"""'><input type='submit' value='Close Form'></form>"
+    final+="<form action='confirm.py'><input type='hidden' id='file' name='file' value='"""+det(FStoD()['date'])+"""'><input type='submit' value='View Roster'></form>"
     count=0
     countAcceptance=0
     countConfirm=0
@@ -134,14 +134,14 @@ def getevent(): #retreives event data
     for j in lines:
 	count+=1
 	meow=j.split(",")
-	if str(meow[-1])=="accept \n":
+	if str(meow[-1])=='accept \\n':
 	    countAcceptance+=1
 	    if """+FStoD()['size']+""">countAcceptance:
-	        final+=str(meow[3])+"<br>
-	if str(meow[-1])=="confirm \n":
+	        final+=str(meow[3])+"<br>"
+	if str(meow[-1])=='confirm \\n':
 	    countConfirm+=1
 	    final+=str(meow[3])+"<br>"
-	if str(meow[-1])=="waitlist \n" or str(meow[-1])=="waitlist\n":
+	if str(meow[-1])=='waitlist \\n' or str(meow[-1])=='waitlist\\n':
 	    countWaitlist+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
     if '"""+FStoD()['type']+"""'=='groupride':

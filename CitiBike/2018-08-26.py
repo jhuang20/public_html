@@ -5,7 +5,7 @@ form=cgi.FieldStorage()
 
 print '''Content-type: text/html'''
 print
-def getnumber():
+def getnumber(): #retrieves # of people signed up
     csvfile=open('2018-08-26.csv','r')
     lines=csvfile.readlines()
     csvfile.close()
@@ -14,10 +14,11 @@ def getnumber():
 	counter+=1
     return counter
 def isFull():
-    if getnumber()>25:
+    if getnumber()>35:
 	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
     else:
 	return ""
+
 def header():
     return '''<!DOCTYPE html>
 <html>
@@ -172,7 +173,7 @@ body, html {
     </div>
     <div class="navpad">
     <a href="../CitiBike/blog.html" style="text-decoration:none" class="w3-hide-small navpad"><i class="fa fa-user"></i> BLOG</a>
-      <div class="w3-right w3-hide-small">
+      <div class="w3-right">
         <a href="myAccount" style="text-decoration:none">My Account</a>
       </div>
     </div>
@@ -180,6 +181,8 @@ body, html {
     </div>
   </div>
   </header>
+
+
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
@@ -191,9 +194,9 @@ body, html {
         
  <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">Group Ride #1</h1>
-        <h3 class="w3-center">You are signing up for 2018-08-26 at 12:00 until 03:00</h3>
-<p>There are '''+str(25-getnumber())+'''  spots available out of  25</p>
-<h3 id="event">Description</h3><p>Get hype for our first group ride!(and bring your friends along too) Our first group ride will meet at the Tribeca Bridge, right at the CitiBike station. We will then ride up the Hudson River Greenway to Central Park. As an added bonus, you can use the day passes after the group ride, and enjoy CitiBiking through NYC! This event is limited to 25 people, and does require parental permission through a waiver release form. I cannot let you ride without a release form. The ride will be about 1.5 hours, and we will end at 5th Avenue and 90th Street. Stay tuned for updates! This is a RESCHEDULED event. Priority will be given to people who previously signed up.</p>'''+isFull()+'''<form action="submit.py">
+        <h3 class="w3-center">You are signing up for 2018-08-26 at 12:00 until 2:00</h3>
+<p>There are 35 spots</p>
+<h3 id="event">Description</h3><p>Get hype for our first group ride!(and bring your friends along too) Our first group ride will meet at the Tribeca Bridge, right at the CitiBike station. We will then ride up the Hudson River Greenway to Central Park. As an added bonus, you can use the day passes after the group ride, and enjoy CitiBiking through NYC! This event is limited to 35 people. The ride will be about 1.5 hours, and we will end at 5th Avenue and 90th Street. Stay tuned for updates!</p>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName" required="required"></input>
 Last Name::<input name="lastName" required="required"></input>
