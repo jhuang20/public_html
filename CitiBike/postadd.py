@@ -152,7 +152,8 @@ def getevent(): #retreives event data
 	final+="<p><b>"+str(countAcceptance)+" people have been accepted</b></p>"
 	final+="<p><b>"+str(countConfirm)+"</b> people have been CONFIRMED</p>"
 	final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+det(FStoD()['date'])+"""'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
-        final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+det(FStoD()['date'])+"""'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
+        final+="<p>APPROVE person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+det(FStoD()['date'])+"""'><input type='hidden' name='admit' value='2'><input type='submit' value='approve'></form></p>"
+	final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+det(FStoD()['date'])+"""'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
     count=0 #the three lines above provide the ability to delete a person, accept a person, or reject a person. 
     final+="<table style='width:100%'>" #backend table for easy access
     final+='''<tr>
