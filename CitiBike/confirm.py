@@ -18,6 +18,19 @@ def FStoD():
 def remove(): #lists out all the necessary variables to find
     tile=FStoD()['file'] #file name to find the csv
     csvfile = open(tile+".csv", "r+")#opens the file
+    ref=open('events.csv','r+') #opens events.csv
+    #the following code only works for non special events
+    refline=ref.readlines()
+    ref.close()
+    isFirstCome=False
+    capacity=0
+    for event in refline:
+	list=event.split(',')
+	if list[6].rstrip('\n')=='2 ' and list[0]==tile:
+	    isFistCome=True
+	    capacity=int(list[4])
+	    break
+
     lines= csvfile.readlines()
     csvfile.close()
     final=''
@@ -31,11 +44,19 @@ def remove(): #lists out all the necessary variables to find
 	    id+=1
 	    for x in p:
 		if counter>6:
-		    final+="<td>"+p[-1]+"</td"
+		    final+="<td>"+p[-1]+"</td>"
 		    break
 		final+="<td>"+x+"</td>"
 		counter+=1
 	    final+="</tr>"
+	elif isFistCome and id<=capacity:
+	    final+="<tr><td>"+str(id)+"</td>"
+	    counter=0
+	    id+=1
+	    for x in p:
+		final+="<td>"+x+"</td>"
+	    final+="</tr>"
+
     final+="</table>"
     return final
 
