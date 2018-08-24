@@ -31,7 +31,7 @@ def csvWrite():
 	firsttime=''
 	willuse=''
     try:
-	essayresp=","+FStoD()['safety']+","+FStoD()['clarity']
+	essayresp=","+FStoD()['q1']+","+FStoD()['q2']
 	essayresp=essayresp.replace('\n','')
     except KeyError:
 	essayresp=''
@@ -43,7 +43,7 @@ def csvWrite():
     fd.write(myCsvRow)
     fd.close()
 def isFull():
-    if FStoD()['file']=="safetyofficer":
+    if FStoD()['file']=="":
 	return 'Thank you for applying! We will get back to you soon!'
     fd=open(getFile()+'.csv','r')
     lines= fd.readlines()
@@ -57,7 +57,8 @@ def isFull():
     for j in find:
         ret=j.split(",")#gives you the DATE of the Event
         id=ret[0]
-        if id==getFile():
+	px=ret[1]
+        if id==getFile() or px==getFile():
             ping=ret[4]
 	    ping=ping.strip('\n')
             ting=int(ping)
@@ -68,10 +69,10 @@ def isFull():
     counter=0
     for i in lines:#count people
         counter+=1
-    if type=='1 \n':
+    if type=='1 \n' or type=='3 \n':
 	return "Thanks for registering! To see the status of your registration, go to 'My Account' on the homepage"
     elif counter>ting:
-        return "This event is full, you are on the waitlist. Check your application status periodically!."
+        return "Thanks for applying. Check your application status by going to My Account!"
     else:
         return "you have registered for the event! Check your application status by going to My Account."
         

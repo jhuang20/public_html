@@ -15,6 +15,8 @@ def getEvent():#gets event DATE
     for row in lines:
         ret=row.split(",")#gives you the DATE of the Event
         ping=ret[0]
+	if ret[6].strip(" \n")=='3':
+	    ping=ret[1].replace(" ","")
         final+="""
 <div class="w3-col m3 container w3-text-black">"""
         if int(ret[6])==3:
@@ -80,7 +82,7 @@ Enter Passcode:<input type="text" name="password">
 Title::<input name="title" required="required"></input>
 <br>
 <select name="type" size="3" required="required">
-  <option value="volunteering">Volunteering</option>
+  <option value="specialevent">Special Event</option>
   <option value="safetyclass">Safety Class</option>
   <option value="groupride">Group Ride</option>
   </select>
@@ -89,6 +91,8 @@ Pick a start time(format 00:00 (24hr clock)):<input name="time" required="requir
 Endtime(format 00:00, hh:mm): <input name="duration" required="required"></input><br>
 Capacity: <input name="size"></input><br>
 Description:<textarea name="description" rows="10" cols="30">This is an Event Description...</textarea><br>
+Optional Question 1:<textarea name="q1" rows="10" cols="30">Q1</textarea><br>
+Optional Question 2:<textarea name="q2" rows="10" cols="30">Q2</textarea><br>
   <input type="submit">
 </form>
 <h2 id="eventmanage">Event Manager</h2>"""+getEvent()+"""</div>

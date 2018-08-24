@@ -38,7 +38,7 @@ def getEventCSV():#gets event DATE
     counter=0
     for row in lines:
         ret=row.split(",")#gives you the DATE of the Event
-        num=ret[6]
+        num=ret[-1]
         num=num.strip('\n')
         check=int(num)
         if check==2:
@@ -199,7 +199,7 @@ body, html {
     <div class="dropdown-content">
       <a href="http://stuybikes.com/public_html/CitiBike/group.py">Group Ride</a>
       <a href="http://stuybikes.com/public_html/CitiBike/signup.py">Membership</a>
-      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Volunteer</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Special Events/Positions</a>
     </div>
     </div>
     <div class="navpad">

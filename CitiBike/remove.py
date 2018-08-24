@@ -24,16 +24,11 @@ def remove():
     for row in lines:
         ret=row.split(",")#gives you the DATE of the Event
         ping=ret[0]
-        if ping==tile:
-            if int(ret[6])==3:
-                os.remove(tile+"-v.csv")
-                os.remove(tile+"-v-admin.py")
-                os.remove(tile+"-v.py")
-            
-            else:
-                os.remove(tile+".csv")
-                os.remove(tile+"-admin.py")
-                os.remove(tile+".py")
+	wing=ret[1].replace(" ","")
+        if ping==tile or wing==tile:
+            os.remove(tile+".csv")
+            os.remove(tile+"-admin.py")
+            os.remove(tile+".py")
     f = open("events.csv","r+")
     d = f.readlines()
     f.seek(0)

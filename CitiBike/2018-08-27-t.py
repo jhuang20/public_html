@@ -53,7 +53,6 @@ def getevent():
     lines= csvfile.readlines()
     csvfile.close()
     final=' '
-    final+="<form action='duplicate.py'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='date' name='newdate'><input type='submit' value='Reschedule'></form>"
     final+="<form action='close.py'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='submit' value='Close Form'></form>"
     final+="<form action='confirm.py'><input type='hidden' id='file' name='file' value='2018-08-27'><input type='submit' value='View Roster'></form>"
     count=0

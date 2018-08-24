@@ -28,7 +28,7 @@ def csvWrite():
     description=description.replace('\n',' ')
     description=description.replace('\r',' ')
     type=FStoD()['type']
-    if type=="volunteering": #establishes special cases
+    if type=="specialevent": #establishes special cases
 	typeCode=3
     elif type=="safetyclass":
 	typeCode=1
@@ -38,18 +38,19 @@ def csvWrite():
 
     fd.write(myCsvRow)
     fd.close()
-    if typeCode==3: #special code to differentiate volunteerCode
-	pd=open(date+'-v.py','w')
+    if typeCode==3: #special code to differentiate specialEvent code
+	title=title.replace(" ","")
+	pd=open(title+'.py','w')
         pd.write(makePage())
         pd.close()
-	os.chmod(date+'-v.py',0777)
-	s=open(date+'-v-admin.py','w')
+	os.chmod(title+'.py',0777)
+	s=open(title+'-admin.py','w')
         s.write(makeAdmin())
         s.close()
-        os.chmod(date+'-v-admin.py',0777)
-        c=open(date+'-v.csv','w')
+        os.chmod(title+'-admin.py',0777)
+        c=open(title+'.csv','w')
         c.close()
-        os.chmod(date+'-v.csv',0777)
+        os.chmod(title+'.csv',0777)
     else: #makes 3 files, one user front end, one csv for data, and one user backend
 	pd=open(date+'.py','w')
         pd.write(makePage())
@@ -131,11 +132,11 @@ def getevent(): #retreives event data
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
     if '"""+FStoD()['type']+"""'!='safetyclass':
         final+="<p><b>"+str(count-"""+FStoD()['size']+""")+"</b> people are on waitlist</p>" #lists number of people who are signup up and waitlisted
-    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='submit' value='deleteperson'></form></p>"
-    if '"""+FStoD()['type']+"""'=='safetyclass':
+    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+det(FStoD()['date'])+"""'><input type='submit' value='deleteperson'></form></p>"
+    if '"""+FStoD()['type']+"""'=='safetyclass' or '"""+FStoD()['type']+"""'=='specialevent':
 	final+="<p><b>"+str(countAcceptance)+" people have been accepted</b></p>"
-	final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
-        final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+FStoD()['date']+"""'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
+	final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+det(FStoD()['date'])+"""'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
+        final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='"""+det(FStoD()['date'])+"""'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
     count=0 #the three lines above provide the ability to delete a person, accept a person, or reject a person. 
     final+="<table style='width:100%'>" #backend table for easy access
     final+='''<tr>
@@ -178,11 +179,23 @@ How frequently will you use CitiBike, if you were given the opportunity to?(very
 <option value="3">very frequently</option>
 <option value="2">frequently</option>
 <option value="1">infrequently</option></select><br>"""
+    if FStoD()['type']=='specialevent':
+	try:
+	    q1=FStoD()['q1']+"<br><textarea name='q1' rows='10' cols='50'>Type Your Response Here</textarea><br>"
+	except KeyError:
+	    q1=""
+	try:
+	    q2=FStoD()['q2']+"<br><textarea name='q2' rows='10' cols='50'>Type Your Response Here</textarea><br>"
+	except KeyError:
+	    q2=""
+	return q1+"<br>"+q2
     else:
 	return ""
-def det(abacus):
-    if FStoD()['type']=="volunteering":
-	return abacus+'-v'
+def det(abacus): #tells us what file name we are using
+    if FStoD()['type']=="specialevent":
+	fileName=FStoD()['title']
+	fileName=fileName.replace(" ","")
+	return fileName
     else:
 	return abacus
 #makes user page
@@ -381,6 +394,8 @@ body, html {
     </div>
   </div>
   </header>
+
+
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">

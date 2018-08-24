@@ -2,130 +2,30 @@
 import cgi,cgitb,os,csv
 cgitb.enable()
 form=cgi.FieldStorage()
-globs='null'  #personalization, says hi to you!
-numero=0 #if num is 1, adds specific message for safety class
-admit=0 #i think im going to condense this
+
 print '''Content-type: text/html'''
 print
-
-def FStoD():
-    '''
-    Converts cgi.FieldStorage() return value into a standard dictionary
-    '''
-    d = {}
-    formData = cgi.FieldStorage()
-    for k in formData.keys():
-        d[k] = formData[k].value
-    return d
-def getType(num):
-    if num==3:
-	global numero
-	numero=1
-	return "special event/apply for position"
-    if num==2:
-	global numero
-	numero=0
-        return "group ride"
-    if num==1:
-	global numero
-	numero=1
-	return "safety class(membership)"
-    else:
-	return "application"
-def getStatus(counter,line):
-    p=line #which row in csv file
-    csvfile=open("../CitiBike/events.csv","r")
+def getnumber():
+    csvfile=open('2018-08-27.csv','r')
     lines=csvfile.readlines()
     csvfile.close()
-    ping=0
-    currentLoc=0
-    for row in lines:
-	if currentLoc==line:
-	    ret=row.split(",")
-	    ping=int(ret[4]) #returns capacity
-	    break
-	else:
-	    currentLoc+=1
-    if admit==5 and numero==1:
-	global admit
-	admit=0
-	return "CONFIRMED acceptance, you have completed all required forms. Just bring in the waiver form on the day of!"
-    if admit==2 and numero==1:
-	global admit
-	admit=0
-	return "CONDITIONAL acceptance, check your email and follow all the instructions ASAP. You may need to check your spam inbox. Once you follow all the instructions, it will take around 12 hours for your acceptance status to change."
-    if admit==3 and numero==1:
-	global admit
-	admit=0
-	return "rejected"
-    if admit==4 and numero==1:
-	global admit
-	admit=0
-	return "waitlisted, see email"
-    if numero==1:
-	return "pending, check this page periodically"
-    if ping<=int(counter):
-	return "waitlisted, you will be emailed if accepted, check this page periodically"
-    else:
-	return "CONFIRMED ACCEPTED, check email AND FILL OUT ANY ATTATCHED WAIVERS AND BRING IT TO THE EVENT"
-def getDetail(name):
-    return "Hi,"+name
-def getevent():
-    fill=""
-    csvfile = open("../CitiBike/events.csv", "r")#opens the file
-    lines= csvfile.readlines()
-    csvfile.close()
     counter=0
-    rowC=0
-    for row in lines: #look at each event, see if there is a match
-        ret=row.split(",")#gives you the DATE of the Event
-        ping=ret[0]
-	if ret[6]=='3 /n':
-	   ping=ret[1]
-	try:
-            vfile= open("../CitiBike/"+ping+".csv","r")#opens csv of THIS file
-        except IOError:
-	    vfile= open("../CitiBike/"+ret[1].replace(" ","")+".csv","r")
-	vline=vfile.readlines()
-	vfile.close()
-        counter=0 #counts the number of people there are
-        for person in vline:
-            per=person.split(",") #gives you list of OSIS
-            osisM=per[0]
-            if FStoD()['osis']==osisM:
-		if str(per[-1])=='accept \n':
-		    global admit
-		    admit=2
-		if str(per[-1])=='reject \n':
-		    global admit
-		    admit=3
-		if str(per[-1])=='waitlist\n' or str(per[-1])=='waitlist \n':
-		    global admit
-		    admit=4
-		if str(per[-1])=='confirm \n':
-		    global admit
-		    admit=5
-	        global globs
-	        if globs=='null':
-	            global globs
-	            globs=getDetail(per[2])
-		    break
-                fill+="<tr><td>"+ret[0]+"</td><td> "+getType(int(ret[6]))+"</td><td>"+ret[2]+"</td><td>"+getStatus(int(counter),int(rowC))+"</td>"
-                fill+="<td><form action='rmperson.py'><input type='hidden' id='osis' name='osis' value='"+FStoD()['osis']+"'><input type='hidden' id='file' name='file' value="+ret[0]+"><input type='submit' value='De-register for event'></form></td></tr>"
-            counter+=1
-        rowC+=1
-    if fill=="":
-        return "no events found"
+    for i in lines:
+	counter+=1
+    return counter
+def isFull():
+    if getnumber()>250:
+	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
     else:
-        return fill
-print '''<!DOCTYPE html>
+	return ""
+def header():
+    return '''<!DOCTYPE html>
 <html>
 <head>
-  <link rel="shortcut icon" type="image/png" href="../su.png" />
+  <link rel="shortcut icon" type="image/png" href="../logo.png" />
 </head>
-<title>Your Profile</title>
+<title>Stuybikes!</title>
 <meta charset="UTF-8">
-<div hidden>'''+getevent()+'''</div>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -137,6 +37,7 @@ body, html {
     color: #000000;
     line-height: 1.8;
 }
+
 /* Create a Parallax Effect */
 .bgimg-1, .bgimg-2, .bgimg-3 {
     background-attachment: fixed;
@@ -144,16 +45,19 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 /* First image (Logo. Full height) */
 .bgimg-1 {
     background-image: url("Citi-Bike.jpg");
     min-height: 100%;
 }
+
 /* Second image (Portfolio) */
 .bgimg-2 {
     background-image: url("Citi-Bike.jpg");
     min-height: 400px;
 }
+
 /* Third image (Contact) */
 .bgimg-3 {
     background-image: url("IMG_2705.jpg");
@@ -164,7 +68,7 @@ body, html {
     border: none;
     outline: none;
     color: black;
-    padding: 14px 15px;
+    padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
@@ -183,6 +87,7 @@ body, html {
   overflow: hidden;
     
 }
+
 .dropdown .dropbtn {
     font-size: 20px;    
     border: none;
@@ -193,6 +98,7 @@ body, html {
     font-family: inherit;
     margin: 0;
 }
+
 .dropdown-content {
     display: none;
     position: fixed;
@@ -201,6 +107,7 @@ body, html {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
+
 .dropdown-content a {
     float: none;
     color: black;
@@ -209,9 +116,11 @@ body, html {
     display: block;
     text-align: left;
 }
+
 .dropdown-content a:hover {
     background-color: #959595;
 }
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -222,16 +131,18 @@ body, html {
 }
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
+
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
     }
 }
+
 </style>
 <body>
-
   <!-- keep track of appearing and disappearing text in main page! -->
+
 <!-- Navbar (sit on top) -->
   <header>
 <div class="w3-top">
@@ -262,13 +173,14 @@ body, html {
     <div class="navpad">
     <a href="../CitiBike/blog.html" style="text-decoration:none" class="w3-hide-small navpad"><i class="fa fa-user"></i> BLOG</a>
       <div class="w3-right">
-        <a href="../myAccount" style="text-decoration:none">My Account</a>
+        <a href="myAccount" style="text-decoration:none">My Account</a>
       </div>
     </div>
         
     </div>
   </div>
   </header>
+
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
     <a href="index.html" class="w3-bar-item w3-button w3-hide-small">
@@ -278,17 +190,38 @@ body, html {
 </div>
         
  <div id="body" class="w3-content w3-padding-64">
-        <h1 class="w3-center">Event Schedule for '''+FStoD()['osis']+'''</h1>
-        <h3 class="w3-center">You can remove events here, and also see all the events you have signed up for. You will also be able to see whether you have been accepted for positions/selective classes(in a future update)</h3>
-        <h4>'''+globs+'''</h4>
-        <h4>Events</h4><table style="width:100%"><tr><th>date</th><th>type</th><th>start time</th><th>status</th><th>delete event</th></tr><p>'''+getevent()+'''</table>
- </div>
+        <h1 class="w3-center">Stuybikes!</h1>
+        <h3 class="w3-center">You are signing up for 2018-08-27 at 12:00 until 03:00</h3>
+<p>There are 25 spots, admission is rolling.</p>
+<h3 id="event">Description</h3><p>"Stuybikes!" is a 3 hour comprehensive safety course taught by experienced instructors. Participants will learn all about using CitiBike, road riding, and safety tips, and will get to practice these skills in a group ride//a controlled environment. Upon completion of the course, participants will recieve a helmet, some swag, and of course a FREE CitiBike annual membership(Normal Price:$169). Priority will be given to those who haven't used CitiBike in the past, and those who will likely use CitiBike frequently.</p>'''+isFull()+'''<form action="submit.py">
+<br>
+First Name::<input name="firstName" required="required"></input>
+Last Name::<input name="lastName" required="required"></input>
+<br>
+<br>Birthday:<input type="date" name="date" required="required"><br>
+OSIS:<input name="osis" required="required"></input><br>
+Email: <input name="contact" required="required"></input><br>Have you used CitiBike before?<br>
+<select name="firsttime" size="2" required="required">
+<option value="yes">yes</option>
+<option value="no">no</option></select><br>
+How frequently will you use CitiBike, if you were given the opportunity to?(very frequently is defined as 2+ times a day, frequently 5 times a week, infrequently less than 3 times a week)<br>
+<select name="willuse" size="3" required="required">
+<option value="3">very frequently</option>
+<option value="2">frequently</option>
+<option value="1">infrequently</option></select><br>
+<input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program. I understand that I have to be 16 years old to use CitiBike.<br>
+<input type="hidden" id="file" name="file" value='2018-08-27'>
+   <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
+          <i class="fa fa-bicycle"></i>Register!
+        </button>
+</form>
+</div>
 <script>
 // Change style of navbar on scroll
 window.onscroll = function() {myFunction()};
 function myFunction() {
     var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
         navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
     } else {
         navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
@@ -303,4 +236,7 @@ function toggleFunction() {
     }
 }
 </script>
-        </body>'''
+        </body>
+	
+        </html>'''
+print header()

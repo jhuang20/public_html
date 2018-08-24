@@ -16,37 +16,28 @@ def FStoD():
     return d
 
 def remove(): #lists out all the necessary variables to find
-    nile=FStoD()['admit'] #0 means reject, 1 means admit
     tile=FStoD()['file'] #file name to find the csv
     csvfile = open(tile+".csv", "r+")#opens the file
     lines= csvfile.readlines()
-    csvfile.seek(0)
+    csvfile.close()
+    final=''
+    id=1
+    final+="<table style='width:100%'><tr><th>Roster#</th><th>OSIS</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Birthday</th><th>q1 resp</th><th>q2 resp</th><th>confirm</th><th>Here</th></tr>"
     for i in lines:
 	p=i.split(",")
-	for data in p:
-	    if FStoD()['osis']==data:
-		if nile=='1':
-		    i=i.rstrip('\n')+',accept \n'
-		elif nile=='2':
-		    i=i.rstrip('\n')+',confirm \n'
-		elif nile=='3':
-		    i=i.rstrip('\n')+',waitlist \n'
-		else:
-		    i=i.rstrip('\n')+',reject \n'
-        if FStoD()['osis'] in i: #goes to line where OSIS is and changes status
-	    if nile=='1':
-	        i=i.rstrip('\n')+',accept \n'
-	    elif nile=='2':
-		i=i.rstrip('\n')+',confirm \n'
-	    elif nile=='3':
-		i=i.rstrip('\n')+',waitlist \n'
-            else:
-		i=i.rstrip('\n')+',reject \n'
-	    csvfile.write(i)
-	else:
-	    csvfile.write(i)
-    csvfile.truncate()
-    csvfile.close()
+        if p[-1].rstrip(' \n')=='confirm':
+	    final+="<tr><td>"+str(id)+"</td>"
+	    counter=0
+	    id+=1
+	    for x in p:
+		if counter>6:
+		    final+="<td>"+p[-1]+"</td"
+		    break
+		final+="<td>"+x+"</td>"
+		counter+=1
+	    final+="</tr>"
+    final+="</table>"
+    return final
 
 def user():
     return """
@@ -54,13 +45,11 @@ def user():
 <html>
 <head>
   <link rel="shortcut icon" type="image/png" href="logo.png" />
-<meta http-equiv="refresh" content='20; url="""+FStoD()['file']+"""-admin.py'>
 </head>
 <title>Dashboard</title>
 <body>
-<h1>You accepted/rejected a person</h1>
+<h1>Class roster for """+FStoD()['file']+""" as of now</h1>"""+remove()+"""
 <p><a href='"""+FStoD()['file']+"""-admin.py'>back to event</a></p>
 </body>
 </html>"""
-remove()
 print user()

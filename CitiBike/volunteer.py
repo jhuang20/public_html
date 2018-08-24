@@ -38,14 +38,14 @@ def getEventCSV():#gets event DATE
     counter=0
     for row in lines:
         ret=row.split(",")#gives you the DATE of the Event
-        num=ret[6]
+        num=ret[-1]
         num=num.strip('\n')
         check=int(num)
         if check==3:
-            ping=ret[0]
+            ping=ret[1]
             final+="""
 <div class="w3-col m3 container w3-text-black">
-        <a href="""+ping+"""-v.py><button class="w3-button w3-black  w3-section" onmouseover="expand("""+str(counter)+""")">"""+ping+"""</button></a></div>
+        <a href="""+ping.replace(" ","")+""".py><button class="w3-button w3-black  w3-section" onmouseover="expand("""+str(counter)+""")">"""+ping+"""</button></a></div>
         """
         counter+=1
     return final+"</div>"
@@ -211,7 +211,7 @@ body, html {
     <div class="dropdown-content">
       <a href="http://stuybikes.com/public_html/CitiBike/group.py">Group Ride</a>
       <a href="http://stuybikes.com/public_html/CitiBike/signup.py">Membership</a>
-      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Volunteer</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Special Events</a>
     </div>
     </div>
     <div class="navpad">
@@ -237,7 +237,7 @@ body, html {
   <div class="w3-display-middle">
     <!-- In the future, have tags and various types of posts -->
     <div class="w3-display-middle">
-      <span class="w3-xxlarge w3-animate-opacity w3-text-white w3-wide">Volunteer!</span>
+      <span class="w3-xxlarge w3-animate-opacity w3-text-white w3-wide">Sign up for Special Events/Positions!</span>
     </div>
   </div>
     <!--<span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity"><img src="logo.png" height=100 width=250>-->
@@ -246,7 +246,7 @@ body, html {
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
   <h3 class="w3-center w3-xxlarge">Help the green revolution!</h3>
-  <p class="w3-center">We need volunteers to help with organizing events! As a volunteer, you not only get hours but also priority for any class you sign up for!</p>
+  <p class="w3-center">Special Events, such as signups for launch events, meetings, and positions, will be posted here.</p>
   """+getEventCSV()+"""<div class="w3-row-padding w3-center w3-text-white">"""+"""</div><div class="w3-content w3-container" id="choose">
 <div id="attrib">
 </div>

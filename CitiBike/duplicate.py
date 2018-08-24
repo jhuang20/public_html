@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import cgi,cgitb,os
+import postadd
 cgitb.enable()
 form=cgi.FieldStorage()
 print """Content-type: text/html\n\n"""
@@ -16,11 +17,11 @@ def FStoD():
     return d
 
 def remove(): #lists out all the necessary variables to find
-    nile=FStoD()['admit'] #0 means reject, 1 means admit
+    nile=FStoD()['newdate'] #0 means reject, 1 means admit
     tile=FStoD()['file'] #file name to find the csv
+    os
     csvfile = open(tile+".csv", "r+")#opens the file
     lines= csvfile.readlines()
-    csvfile.seek(0)
     for i in lines:
 	p=i.split(",")
 	for data in p:

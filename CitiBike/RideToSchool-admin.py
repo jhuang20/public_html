@@ -50,7 +50,7 @@ document.getElementById("secure").style.display="block";
     '''
 def getevent(): #retreives event data
 
-    csvfile = open('safetyofficer.csv', "r")#opens the file
+    csvfile = open('RideToSchool.csv', "r")#opens the file
     lines= csvfile.readlines()
     csvfile.close()
     final=' '
@@ -63,12 +63,12 @@ def getevent(): #retreives event data
 	    countAcceptance+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
     if 'specialevent'!='safetyclass':
-        final+="<p><b>"+str(count-10000000)+"</b> people are on waitlist</p>" #lists number of people who are signup up and waitlisted
-    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='safetyofficer'><input type='submit' value='deleteperson'></form></p>"
+        final+="<p><b>"+str(count-100)+"</b> people are on waitlist</p>" #lists number of people who are signup up and waitlisted
+    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='RideToSchool'><input type='submit' value='deleteperson'></form></p>"
     if 'specialevent'=='safetyclass' or 'specialevent'=='specialevent':
 	final+="<p><b>"+str(countAcceptance)+" people have been accepted</b></p>"
-	final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='safetyofficer'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
-        final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='safetyofficer'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
+	final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='RideToSchool'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
+        final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='RideToSchool'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
     count=0 #the three lines above provide the ability to delete a person, accept a person, or reject a person. 
     final+="<table style='width:100%'>" #backend table for easy access
     final+='''<tr>
