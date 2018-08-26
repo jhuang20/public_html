@@ -32,6 +32,7 @@ def user():
 <html>
 <head>
   <link rel="shortcut icon" type="image/png" href="logo.png" />
+<meta http-equiv="refresh" content="0;URL='http://stuybikes.com/public_html/myAccount/hello.py?osis="""+FStoD()['osis']+"""'"/>
 </head>
 <title>Confirmation</title>
 <body>

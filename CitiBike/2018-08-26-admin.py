@@ -32,7 +32,7 @@ display: none;
 Enter Passcode:<input type="text" name="password">
 </form>
 <input type="button" value="Login" onclick="login()">
-<div class="secure">
+<div id="secure">
     <h1>Admin Console for Specified Event</h1>
     <h2>If you are not an admin, please send us a message on the contact page()</h2>
 <h2 id="eventmanage">Who's Going?</h2>'''+getevent()+'''

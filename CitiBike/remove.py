@@ -33,8 +33,9 @@ def remove():
     d = f.readlines()
     f.seek(0)
     for i in d:
-        if not tile in i:
-            f.write(i)
+	search=i.split(",") #gives you name of event
+	if tile!=search[1].replace(" ","") and tile!=search[0]:
+	    f.write(i)
     f.truncate()
     f.close()
 

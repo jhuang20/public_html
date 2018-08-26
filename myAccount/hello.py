@@ -46,6 +46,10 @@ def getStatus(counter,line):
 	    break
 	else:
 	    currentLoc+=1
+    if admit==6 and numero==1:
+	global admit
+	admit=0
+	return "this event has been postponed. You are guaranteed a spot in the new date. Check your email for updates."
     if admit==5 and numero==1:
 	global admit
 	admit=0
@@ -83,7 +87,7 @@ def getevent():
 	if ret[6]=='3 /n':
 	   ping=ret[1]
 	try:
-            vfile= open("../CitiBike/"+ping+".csv","r")#opens csv of THIS file
+            vfile= open("../CitiBike/"+ping+".csv","r") #opens csv of THIS file
         except IOError:
 	    vfile= open("../CitiBike/"+ret[1].replace(" ","")+".csv","r")
 	vline=vfile.readlines()
@@ -105,6 +109,9 @@ def getevent():
 		if str(per[-1])=='confirm \n':
 		    global admit
 		    admit=5
+		if str(per[-1])=='postpone \n':
+		    global admit
+		    admit=6
 	        global globs
 	        if globs=='null':
 	            global globs
@@ -131,7 +138,7 @@ print '''<!DOCTYPE html>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Calibri", sans-serif;}
 body, html {
     height: 100%;
     color: #000000;
@@ -256,13 +263,13 @@ body, html {
     <div class="dropdown-content">
       <a href="http://stuybikes.com/public_html/CitiBike/group.py">Group Ride</a>
       <a href="http://stuybikes.com/public_html/CitiBike/signup.py">Membership</a>
-      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Volunteer</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Special Events/Positions</a>
     </div>
     </div>
     <div class="navpad">
     <a href="../CitiBike/blog.html" style="text-decoration:none" class="w3-hide-small navpad"><i class="fa fa-user"></i> BLOG</a>
       <div class="w3-right">
-        <a href="../myAccount" style="text-decoration:none">My Account</a>
+        <a href="../myAccount" style="text-decoration:none">My Events</a>
       </div>
     </div>
         
@@ -279,7 +286,7 @@ body, html {
         
  <div id="body" class="w3-content w3-padding-64">
         <h1 class="w3-center">Event Schedule for '''+FStoD()['osis']+'''</h1>
-        <h3 class="w3-center">You can remove events here, and also see all the events you have signed up for. You will also be able to see whether you have been accepted for positions/selective classes(in a future update)</h3>
+        <h3 class="w3-center">You can remove events here, and also see all the events you have signed up for. You can also see if you have been accepted for positions/selective classes. If you are accepted, please check your email!</h3>
         <h4>'''+globs+'''</h4>
         <h4>Events</h4><table style="width:100%"><tr><th>date</th><th>type</th><th>start time</th><th>status</th><th>delete event</th></tr><p>'''+getevent()+'''</table>
  </div>

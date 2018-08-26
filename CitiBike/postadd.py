@@ -100,7 +100,7 @@ display: none;
 Enter Passcode:<input type="text" name="password">
 </form>
 <input type="button" value="Login" onclick="login()">
-<div class="secure">
+<div id="secure">
     <h1>Admin Console for Specified Event</h1>
     <h2>If you are not an admin, please send us a message on the contact page()</h2>
 <h2 id="eventmanage">Who's Going?</h2>'''+getevent()+'''
@@ -262,7 +262,7 @@ def header():
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Calibri", sans-serif;}
 body, html {
     height: 100%;
     color: #000000;
@@ -398,13 +398,13 @@ body, html {
     <div class="dropdown-content">
       <a href="http://stuybikes.com/public_html/CitiBike/group.py">Group Ride</a>
       <a href="http://stuybikes.com/public_html/CitiBike/signup.py">Membership</a>
-      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Volunteer</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Special Events/Positions</a>
     </div>
     </div>
     <div class="navpad">
     <a href="../CitiBike/blog.html" style="text-decoration:none" class="w3-hide-small navpad"><i class="fa fa-user"></i> BLOG</a>
       <div class="w3-right">
-        <a href="myAccount" style="text-decoration:none">My Account</a>
+        <a href="myAccount" style="text-decoration:none">My Events</a>
       </div>
     </div>
         

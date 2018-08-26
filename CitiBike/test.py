@@ -6,7 +6,7 @@ form=cgi.FieldStorage()
 print '''Content-type: text/html'''
 print
 def getnumber(): #retrieves # of people signed up
-    csvfile=open('volunteerforstuybikes1.csv','r')
+    csvfile=open('test.csv','r')
     lines=csvfile.readlines()
     csvfile.close()
     counter=0
@@ -14,7 +14,7 @@ def getnumber(): #retrieves # of people signed up
 	counter+=1
     return counter
 def isFull():
-    if getnumber()>1:
+    if getnumber()>2:
 	return "<p><em>this is currently full! If you sign up, you will be on waitlist</em></p>"
     else:
 	return ""
@@ -25,14 +25,14 @@ def header():
 <head>
   <link rel="shortcut icon" type="image/png" href="../logo.png" />
 </head>
-<title>volunteer for stuybikes 1</title>
+<title>test</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Calibri", sans-serif;}
 body, html {
     height: 100%;
     color: #000000;
@@ -168,13 +168,13 @@ body, html {
     <div class="dropdown-content">
       <a href="http://stuybikes.com/public_html/CitiBike/group.py">Group Ride</a>
       <a href="http://stuybikes.com/public_html/CitiBike/signup.py">Membership</a>
-      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Volunteer</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Special Events/Positions</a>
     </div>
     </div>
     <div class="navpad">
     <a href="../CitiBike/blog.html" style="text-decoration:none" class="w3-hide-small navpad"><i class="fa fa-user"></i> BLOG</a>
       <div class="w3-right">
-        <a href="myAccount" style="text-decoration:none">My Account</a>
+        <a href="myAccount" style="text-decoration:none">My Events</a>
       </div>
     </div>
         
@@ -193,10 +193,10 @@ body, html {
 </div>
         
  <div id="body" class="w3-content w3-padding-64">
-        <h1 class="w3-center">volunteer for stuybikes 1</h1>
-        <h3 class="w3-center">You are signing up for 2018-08-27 at 12:00 until 03:00</h3>
-<p>There are 1 spots</p>
-<h3 id="event">Description</h3><p>THIS ROLE IS NOT OPEN TO ANYONE, THIS IS JUST A TEST</p>'''+isFull()+'''<form action="submit.py">
+        <h1 class="w3-center">test</h1>
+        <h3 class="w3-center">You are signing up for 2001-12-19 at 12 until 3</h3>
+<p>There are 2 spots</p>
+<h3 id="event">Description</h3><p>This is an Event Description...</p>'''+isFull()+'''<form action="submit.py">
 <br>
 First Name::<input name="firstName" required="required"></input>
 Last Name::<input name="lastName" required="required"></input>
@@ -205,7 +205,7 @@ Last Name::<input name="lastName" required="required"></input>
 OSIS:<input name="osis" required="required"></input><br>
 Email: <input name="contact" required="required"></input><br>Q1<br><textarea name='q1' rows='10' cols='50'>Type Your Response Here</textarea><br><br>Q2<br><textarea name='q2' rows='10' cols='50'>Type Your Response Here</textarea><br>
 <input type="checkbox" name="terms" value="agree" required="required"> I agree that I will not hold CitiBike, Stuyvesant High School, or CitiBike X Stuy liable for any injuries resulting from this program. I understand that I have to be 16 years old to use CitiBike.<br>
-<input type="hidden" id="file" name="file" value='volunteerforstuybikes1'>
+<input type="hidden" id="file" name="file" value='test'>
    <button class="w3-button w3-black w3-section w3-xxlarge" type="submit">
           <i class="fa fa-bicycle"></i>Register!
         </button>

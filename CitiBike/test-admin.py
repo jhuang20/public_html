@@ -32,7 +32,7 @@ display: none;
 Enter Passcode:<input type="text" name="password">
 </form>
 <input type="button" value="Login" onclick="login()">
-<div class="secure">
+<div id="secure">
     <h1>Admin Console for Specified Event</h1>
     <h2>If you are not an admin, please send us a message on the contact page()</h2>
 <h2 id="eventmanage">Who's Going?</h2>'''+getevent()+'''
@@ -50,25 +50,42 @@ document.getElementById("secure").style.display="block";
     '''
 def getevent(): #retreives event data
 
-    csvfile = open('RideToSchool.csv', "r")#opens the file
+    csvfile = open('test.csv', "r")#opens the file
     lines= csvfile.readlines()
     csvfile.close()
     final=' '
     count=0
     countAcceptance=0
+    final+="<form action='duplicate.py'><input type='hidden' id='file' name='file' value='test'><input type='date' name='newdate'><input type='submit' value='Reschedule'></form>"
+    final+="<form action='close.py'><input type='hidden' id='file' name='file' value='test'><input type='submit' value='Close Form'></form>"
+    final+="<form action='confirm.py'><input type='hidden' id='file' name='file' value='test'><input type='submit' value='View Roster'></form>"
+    count=0
+    countAcceptance=0
+    countConfirm=0
+    countWaitlist=0
     for j in lines:
 	count+=1
-	isAccept=j.split(",")
-	if isAccept[-1]=="accept /n": #counts number of acceptances(should use strip function )
+	meow=j.split(",")
+	if str(meow[-1])=='accept \n':
 	    countAcceptance+=1
+	    if 2>countAcceptance:
+	        final+=str(meow[3])+"<br>"
+	if str(meow[-1])=='confirm \n':
+	    countConfirm+=1
+	    final+=str(meow[3])+"<br>"
+	if str(meow[-1])=='waitlist \n' or str(meow[-1])=='waitlist\n':
+	    countWaitlist+=1
     final+="<p><b>"+str(count)+ "</b> people are signed up</p>"
-    if 'specialevent'!='safetyclass':
-        final+="<p><b>"+str(count-100)+"</b> people are on waitlist</p>" #lists number of people who are signup up and waitlisted
-    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='RideToSchool'><input type='submit' value='deleteperson'></form></p>"
+    if 'specialevent'=='groupride':
+	final+="<p><b>"+str(count-2)+"</b> people are on waitlist</p>" #lists number of people who are signup up and waitlisted
+    final+="<p>Remove Person(enter OSIS):<form action='rmperson.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='test'><input type='submit' value='deleteperson'></form></p>"
     if 'specialevent'=='safetyclass' or 'specialevent'=='specialevent':
+        final+="<p><b>"+str(countWaitlist)+"</b> people have been waitlisted</p>"
 	final+="<p><b>"+str(countAcceptance)+" people have been accepted</b></p>"
-	final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='RideToSchool'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
-        final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='RideToSchool'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
+	final+="<p><b>"+str(countConfirm)+"</b> people have been CONFIRMED</p>"
+	final+="<p>Accept person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='test'><input type='hidden' name='admit' value='1'><input type='submit' value='accept'></form></p>"
+        final+="<p>APPROVE person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='test'><input type='hidden' name='admit' value='2'><input type='submit' value='approve'></form></p>"
+	final+="<p>Reject Person(Enter OSIS):<form action='accept.py'><input type='text' name='osis'><input type='hidden' id='file' name='file' value='test'><input type='hidden' name='admit' value='0'><input type='submit' value='reject'></form></p>"
     count=0 #the three lines above provide the ability to delete a person, accept a person, or reject a person. 
     final+="<table style='width:100%'>" #backend table for easy access
     final+='''<tr>

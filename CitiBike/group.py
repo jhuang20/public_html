@@ -75,7 +75,7 @@ def main():
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Calibri", sans-serif;}
 body, html {
     height: 100%;
     color: #000000;
@@ -204,8 +204,8 @@ body, html {
     </div>
     <div class="navpad">
     <a href="../CitiBike/blog.html" style="text-decoration:none" class="w3-hide-small navpad"><i class="fa fa-user"></i> BLOG</a>
-      <div class="w3-right w3-hide-small">
-        <a href="myAccount" style="text-decoration:none">My Account</a>
+      <div class="w3-right">
+        <a href="myAccount" style="text-decoration:none">My Events</a>
       </div>
     </div>
         

@@ -33,6 +33,8 @@ def remove(): #lists out all the necessary variables to find
 		    i=i.rstrip('\n')+',waitlist \n'
 		else:
 		    i=i.rstrip('\n')+',reject \n'
+	if nile=='10' and 'confirm' in i:
+	    i=i.rstrip('\n')+',postpone \n'
         if FStoD()['osis'] in i: #goes to line where OSIS is and changes status
 	    if nile=='1':
 	        i=i.rstrip('\n')+',accept \n'
