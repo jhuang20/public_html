@@ -178,7 +178,7 @@ body, html {
 <!-- Navbar (sit on top) -->
   <header>
 <div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
+  <div class="w3-bar w3-card w3-animate-top w3-white" id="myNavbar">
     <a href="../index.html" class="w3-bar-item w3-button w3-hide-small">
         <img src="logo.png" height=40 width=100>
     </a>
@@ -197,8 +197,8 @@ body, html {
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="http://stuybikes.com/public_html/CitiBike/group.py">Group Ride</a>
-      <a href="http://stuybikes.com/public_html/CitiBike/signup.py">Membership</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/group.py">Group Ride/Day Pass</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/signup.py">Safety Classes/Membership</a>
       <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Special Events/Positions</a>
     </div>
     </div>
@@ -226,7 +226,7 @@ body, html {
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
   <h3 class="w3-center w3-xxlarge">Group Rides are a great way to try CitiBike-- without a safety class!</h3>
-  <p class="w3-center">Group rides typically depart from the bike station in front of Stuyvesant High School; choose on the map in the form so we can plan the BEST route!</p>
+  <p class="w3-center">Group rides typically depart from the bike station in front of Stuyvesant High School; enter your final destination and we'll try to make a group for you!(Some rides may only have one route, others may have multiple)</p>
   """+getEventCSV()+"""<div class="w3-row-padding w3-center w3-text-white">"""+"""</div><div class="w3-content w3-container" id="choose">
 <div id="attrib">
 </div>
@@ -243,23 +243,6 @@ body, html {
 </script>
 <script>
 // Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
 </script>
 </body>
 </html>

@@ -190,7 +190,7 @@ body, html {
 <!-- Navbar (sit on top) -->
   <header>
 <div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
+  <div class="w3-bar w3-animate-top w3-card w3-white" id="myNavbar">
     <a href="../index.html" class="w3-bar-item w3-button w3-hide-small">
         <img src="logo.png" height=40 width=100>
     </a>
@@ -209,8 +209,8 @@ body, html {
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="http://stuybikes.com/public_html/CitiBike/group.py">Group Ride</a>
-      <a href="http://stuybikes.com/public_html/CitiBike/signup.py">Membership</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/group.py">Group Ride/Day Pass</a>
+      <a href="http://stuybikes.com/public_html/CitiBike/signup.py">Safety Classes/Membership</a>
       <a href="http://stuybikes.com/public_html/CitiBike/volunteer.py">Special Events</a>
     </div>
     </div>
@@ -237,7 +237,7 @@ body, html {
   <div class="w3-display-middle">
     <!-- In the future, have tags and various types of posts -->
     <div class="w3-display-middle">
-      <span class="w3-xxlarge w3-animate-opacity w3-text-white w3-wide">Sign up for Special Events/Positions!</span>
+      <span class="w3-xxlarge w3-animate-opacity w3-text-white">Sign up for Special Events/Positions!</span>
     </div>
   </div>
     <!--<span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity"><img src="logo.png" height=100 width=250>-->
@@ -263,23 +263,6 @@ body, html {
 </script>
 <script>
 // Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
 </script>
 </body>
 </html>
