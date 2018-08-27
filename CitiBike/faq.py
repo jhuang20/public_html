@@ -271,12 +271,12 @@ A: Assuming this program is highly utilized, its possible that the NYCDOE Office
 
 <!-- Add Google Maps -->
 <script>
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
+function myFunction() {
+    var x = document.getElementById("myNavbar");
+    if (x.className === "topnav") {
+        x.className += " responsive";
     } else {
-        x.className = x.className.replace(" w3-show", "");
+        x.className = "topnav";
     }
 }
 </script>
