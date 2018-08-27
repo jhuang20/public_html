@@ -297,6 +297,14 @@ body, html {
 </footer>
 <!-- Add Google Maps -->
 <script>
+function myFunction() {
+    var x = document.getElementById("myNavbar");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
 </script>
 <script>
 // Change style of navbar on scroll
