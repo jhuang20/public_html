@@ -340,22 +340,12 @@ body, html {
         <h4>Events</h4><table style="width:100%"><tr><th>date</th><th>type</th><th>start time</th><th>status</th><th>delete event</th></tr><p>'''+getevent()+'''</table>
  </div>
 <script>
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
 function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    var x = document.getElementById("myNavbar");
+    if (x.className === "topnav") {
+        x.className += " responsive";
     } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
+        x.className = "topnav";
     }
 }
 </script>
