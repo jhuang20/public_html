@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import cgi,cgitb,os
-import postadd
+from shutil import copyfile
 cgitb.enable()
 form=cgi.FieldStorage()
 print """Content-type: text/html\n\n"""
@@ -17,50 +17,26 @@ def FStoD():
     return d
 
 def remove(): #lists out all the necessary variables to find
-    nile=FStoD()['newdate'] #0 means reject, 1 means admit
-    tile=FStoD()['file'] #file name to find the csv
-    os
-    csvfile = open(tile+".csv", "r+")#opens the file
-    lines= csvfile.readlines()
-    for i in lines:
-	p=i.split(",")
-	for data in p:
-	    if FStoD()['osis']==data:
-		if nile=='1':
-		    i=i.rstrip('\n')+',accept \n'
-		elif nile=='2':
-		    i=i.rstrip('\n')+',confirm \n'
-		elif nile=='3':
-		    i=i.rstrip('\n')+',waitlist \n'
-		else:
-		    i=i.rstrip('\n')+',reject \n'
-        if FStoD()['osis'] in i: #goes to line where OSIS is and changes status
-	    if nile=='1':
-	        i=i.rstrip('\n')+',accept \n'
-	    elif nile=='2':
-		i=i.rstrip('\n')+',confirm \n'
-	    elif nile=='3':
-		i=i.rstrip('\n')+',waitlist \n'
-            else:
-		i=i.rstrip('\n')+',reject \n'
-	    csvfile.write(i)
-	else:
-	    csvfile.write(i)
-    csvfile.truncate()
-    csvfile.close()
-
+    nile=FStoD()['newdate'] #new files
+    tile=FStoD()['file'] #file name to find the file names
+    copyfile(tile+'.py',nile+'.py')
+    copyfile(tile+'.csv',nile+'.csv')
+    copyfile(tile+'-admin.py',nile+'-admin.py')
+    os.chmod(nile+'.py',0777)
+    os.chmod(nile+'.csv',0777)
+    os.chmod(nile+'-admin.py',0777)
 def user():
     return """
     <!DOCTYPE html>
 <html>
 <head>
   <link rel="shortcut icon" type="image/png" href="logo.png" />
-<meta http-equiv="refresh" content='20; url="""+FStoD()['file']+"""-admin.py'>
+<meta http-equiv="refresh" content='20; url="""+FStoD()['newdate']+"""-admin.py'>
 </head>
 <title>Dashboard</title>
 <body>
-<h1>You accepted/rejected a person</h1>
-<p><a href='"""+FStoD()['file']+"""-admin.py'>back to event</a></p>
+<h1>You Rescheduled The Event. Now, check that everything is copied over and then proceed to the Dashboard to delete the old event!</h1>
+<p><a href='"""+FStoD()['newdate']+"""-admin.py'>To New Event</a></p>
 </body>
 </html>"""
 remove()

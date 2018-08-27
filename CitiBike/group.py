@@ -90,7 +90,7 @@ body, html {
 }
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url("Citi-Bike.jpg");
+    background-image: url("IMG_4078.jpg");
     min-height: 100%;
 }
 /* Second image (Portfolio) */
@@ -217,7 +217,7 @@ body, html {
   <div class="w3-display-middle">
     <!-- In the future, have tags and various types of posts -->
     <div class="w3-display-middle">
-      <span class="w3-xxlarge w3-animate-opacity w3-text-white w3-wide">Group Rides!</span>
+      <span class="w3-xxlarge w3-animate-opacity w3-text-black w3-wide">Group Rides!</span>
     </div>
   </div>
     <!--<span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity"><img src="logo.png" height=100 width=250>-->

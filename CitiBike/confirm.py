@@ -27,10 +27,8 @@ def remove(): #lists out all the necessary variables to find
     for event in refline:
 	list=event.split(',')
 	if list[6].rstrip('\n')=='2 ' and list[0]==tile:
-	    isFistCome=True
+	    isFirstCome=True
 	    capacity=int(list[4])
-	    break
-
     lines= csvfile.readlines()
     csvfile.close()
     final=''
@@ -49,7 +47,7 @@ def remove(): #lists out all the necessary variables to find
 		final+="<td>"+x+"</td>"
 		counter+=1
 	    final+="</tr>"
-	elif isFistCome and id<=capacity:
+	elif isFirstCome and id<=capacity:
 	    final+="<tr><td>"+str(id)+"</td>"
 	    counter=0
 	    id+=1
