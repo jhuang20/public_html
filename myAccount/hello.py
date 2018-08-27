@@ -326,7 +326,7 @@ body, html {
     
     <a href="http://stuybikes.com/public_html/CitiBike/blog.html" style="text-decoration:none" class=""><i class="fa fa-user"></i> Blog</a>
       
-        <a href="myAccount" style="text-decoration:none text-align:right">My Events</a>
+        <a href="../myAccount" style="text-decoration:none text-align:right">My Events</a>
  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
     
         
