@@ -190,7 +190,7 @@ body, html {
 <!-- Navbar (sit on top) -->
   <div class="w3-top">
 <div class="topnav" id="myNavbar">
-    <a href="index.html" class="w3-bar-item w3-button">
+    <a href="../index.html" class="w3-bar-item w3-button">
         <img src="logo.png" height=40 width=100>
     </a>
     <div class="dropdown">
