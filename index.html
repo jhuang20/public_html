@@ -64,7 +64,7 @@ body, html {
   text-align: center;
   padding: 8px 10px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .active {
@@ -430,12 +430,12 @@ function onClick(element) {
 
 // Change style of navbar on scroll
 function myFunction() {
-var x=  document.getElementById("myNavbar");
-if (x.className === "topnav") {
-	x.className+="responsive";
-} else {
-	x.className ="topnav";
-}
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
