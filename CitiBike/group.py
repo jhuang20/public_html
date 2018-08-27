@@ -92,7 +92,7 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url("Citi-Bike.jpg");
+    background-image: url("IMG_4078.jpg");
     min-height: 100%;
 }
 
